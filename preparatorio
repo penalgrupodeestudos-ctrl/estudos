@@ -1,0 +1,2695 @@
+<!DOCTYPE html> 
+
+<html lang="pt-BR"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>RIBETTI PREPARATÓRIO ÁREA POLICIAL</title> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+
+    <style> 
+
+        :root { 
+
+            --primary: #1a365d; 
+
+            --secondary: #2d3748; 
+
+            --accent: #e53e3e; 
+
+            --light: #f7fafc; 
+
+            --success: #38a169; 
+
+            --danger: #e53e3e; 
+
+            --warning: #d69e2e; 
+
+        } 
+
+         
+
+        * { 
+
+            margin: 0; 
+
+            padding: 0; 
+
+            box-sizing: border-box; 
+
+            font-family: 'Roboto', sans-serif; 
+
+        } 
+
+         
+
+        body { 
+
+            background-color: #f0f2f5; 
+
+            color: #333; 
+
+            line-height: 1.6; 
+
+        } 
+
+         
+
+        .container { 
+
+            max-width: 1200px; 
+
+            margin: 0 auto; 
+
+            padding: 20px; 
+
+        } 
+
+         
+
+        header { 
+
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+
+            color: white; 
+
+            padding: 20px 0; 
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+
+            position: relative; 
+
+            overflow: hidden; 
+
+        } 
+
+         
+
+        .header-content { 
+
+            display: flex; 
+
+            justify-content: space-between; 
+
+            align-items: center; 
+
+        } 
+
+         
+
+        .logo { 
+
+            display: flex; 
+
+            align-items: center; 
+
+            gap: 15px; 
+
+        } 
+
+         
+
+        .logo i { 
+
+            font-size: 2.5rem; 
+
+            color: #fff; 
+
+        } 
+
+         
+
+        .logo h1 { 
+
+            font-size: 1.8rem; 
+
+            font-weight: 700; 
+
+        } 
+
+         
+
+        .logo span { 
+
+            display: block; 
+
+            font-size: 1rem; 
+
+            font-weight: 300; 
+
+            opacity: 0.9; 
+
+        } 
+
+         
+
+        nav ul { 
+
+            display: flex; 
+
+            list-style: none; 
+
+            gap: 20px; 
+
+        } 
+
+         
+
+        nav a { 
+
+            color: white; 
+
+            text-decoration: none; 
+
+            font-weight: 500; 
+
+            padding: 8px 15px; 
+
+            border-radius: 4px; 
+
+            transition: background-color 0.3s; 
+
+        } 
+
+         
+
+        nav a:hover, nav a.active { 
+
+            background-color: rgba(255, 255, 255, 0.2); 
+
+        } 
+
+         
+
+        .card { 
+
+            background: white; 
+
+            border-radius: 10px; 
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+
+            padding: 25px; 
+
+            margin-bottom: 25px; 
+
+            transition: transform 0.3s, box-shadow 0.3s; 
+
+        } 
+
+         
+
+        .card:hover { 
+
+            transform: translateY(-5px); 
+
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
+
+        } 
+
+         
+
+        .card-header { 
+
+            display: flex; 
+
+            justify-content: space-between; 
+
+            align-items: center; 
+
+            margin-bottom: 20px; 
+
+            padding-bottom: 15px; 
+
+            border-bottom: 1px solid #e2e8f0; 
+
+        } 
+
+         
+
+        .card-title { 
+
+            font-size: 1.5rem; 
+
+            font-weight: 600; 
+
+            color: var(--primary); 
+
+        } 
+
+         
+
+        .btn { 
+
+            padding: 10px 20px; 
+
+            border: none; 
+
+            border-radius: 5px; 
+
+            font-weight: 500; 
+
+            cursor: pointer; 
+
+            transition: all 0.3s; 
+
+            display: inline-flex; 
+
+            align-items: center; 
+
+            gap: 8px; 
+
+        } 
+
+         
+
+        .btn-primary { 
+
+            background-color: var(--primary); 
+
+            color: white; 
+
+        } 
+
+         
+
+        .btn-primary:hover { 
+
+            background-color: #2d3748; 
+
+        } 
+
+         
+
+        .btn-secondary { 
+
+            background-color: var(--secondary); 
+
+            color: white; 
+
+        } 
+
+         
+
+        .btn-secondary:hover { 
+
+            background-color: #4a5568; 
+
+        } 
+
+         
+
+        .btn-success { 
+
+            background-color: var(--success); 
+
+            color: white; 
+
+        } 
+
+         
+
+        .btn-success:hover { 
+
+            background-color: #2f855a; 
+
+        } 
+
+         
+
+        .btn-danger { 
+
+            background-color: var(--danger); 
+
+            color: white; 
+
+        } 
+
+         
+
+        .btn-danger:hover { 
+
+            background-color: #c53030; 
+
+        } 
+
+         
+
+        .btn-warning { 
+
+            background-color: var(--warning); 
+
+            color: white; 
+
+        } 
+
+         
+
+        .btn-warning:hover { 
+
+            background-color: #b7791f; 
+
+        } 
+
+         
+
+        .dashboard { 
+
+            display: grid; 
+
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+
+            gap: 20px; 
+
+            margin-top: 30px; 
+
+        } 
+
+         
+
+        .dashboard-card { 
+
+            background: white; 
+
+            border-radius: 10px; 
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+
+            padding: 25px; 
+
+            text-align: center; 
+
+            transition: transform 0.3s; 
+
+        } 
+
+         
+
+        .dashboard-card:hover { 
+
+            transform: translateY(-5px); 
+
+        } 
+
+         
+
+        .dashboard-card i { 
+
+            font-size: 3rem; 
+
+            color: var(--primary); 
+
+            margin-bottom: 15px; 
+
+        } 
+
+         
+
+        .dashboard-card h3 { 
+
+            font-size: 1.3rem; 
+
+            margin-bottom: 10px; 
+
+            color: var(--primary); 
+
+        } 
+
+         
+
+        .dashboard-card p { 
+
+            color: #718096; 
+
+            margin-bottom: 20px; 
+
+        } 
+
+         
+
+        .form-group { 
+
+            margin-bottom: 20px; 
+
+        } 
+
+         
+
+        .form-group label { 
+
+            display: block; 
+
+            margin-bottom: 8px; 
+
+            font-weight: 500; 
+
+            color: var(--secondary); 
+
+        } 
+
+         
+
+        .form-control { 
+
+            width: 100%; 
+
+            padding: 12px 15px; 
+
+            border: 1px solid #e2e8f0; 
+
+            border-radius: 5px; 
+
+            font-size: 1rem; 
+
+            transition: border-color 0.3s; 
+
+        } 
+
+         
+
+        .form-control:focus { 
+
+            border-color: var(--primary); 
+
+            outline: none; 
+
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2); 
+
+        } 
+
+         
+
+        textarea.form-control { 
+
+            min-height: 150px; 
+
+            resize: vertical; 
+
+        } 
+
+         
+
+        .question-container { 
+
+            margin-bottom: 30px; 
+
+            border: 1px solid #e2e8f0; 
+
+            border-radius: 8px; 
+
+            overflow: hidden; 
+
+            transition: border-color 0.3s; 
+
+        } 
+
+         
+
+        .question-container.correct { 
+
+            border-color: var(--success); 
+
+            background-color: rgba(56, 161, 105, 0.05); 
+
+        } 
+
+         
+
+        .question-container.incorrect { 
+
+            border-color: var(--danger); 
+
+            background-color: rgba(229, 62, 62, 0.05); 
+
+        } 
+
+         
+
+        .question-header { 
+
+            background-color: #f7fafc; 
+
+            padding: 15px 20px; 
+
+            border-bottom: 1px solid #e2e8f0; 
+
+            font-weight: 500; 
+
+            color: var(--primary); 
+
+        } 
+
+         
+
+        .question-body { 
+
+            padding: 20px; 
+
+        } 
+
+         
+
+        .question-text { 
+
+            margin-bottom: 20px; 
+
+            font-size: 1.1rem; 
+
+            line-height: 1.6; 
+
+        } 
+
+         
+
+        .alternatives { 
+
+            display: flex; 
+
+            flex-direction: column; 
+
+            gap: 10px; 
+
+        } 
+
+         
+
+        .alternative { 
+
+            display: flex; 
+
+            align-items: flex-start; 
+
+            gap: 10px; 
+
+            padding: 12px 15px; 
+
+            border: 1px solid #e2e8f0; 
+
+            border-radius: 5px; 
+
+            cursor: pointer; 
+
+            transition: background-color 0.3s; 
+
+        } 
+
+         
+
+        .alternative:hover { 
+
+            background-color: #f7fafc; 
+
+        } 
+
+         
+
+        .alternative.selected { 
+
+            background-color: #ebf8ff; 
+
+            border-color: #63b3ed; 
+
+        } 
+
+         
+
+        .alternative.correct { 
+
+            background-color: rgba(56, 161, 105, 0.1); 
+
+            border-color: var(--success); 
+
+        } 
+
+         
+
+        .alternative.incorrect { 
+
+            background-color: rgba(229, 62, 62, 0.1); 
+
+            border-color: var(--danger); 
+
+        } 
+
+         
+
+        .alternative input { 
+
+            margin-top: 3px; 
+
+        } 
+
+         
+
+        .alternative-label { 
+
+            font-weight: 500; 
+
+            min-width: 30px; 
+
+        } 
+
+         
+
+        .results-summary { 
+
+            background: white; 
+
+            border-radius: 10px; 
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+
+            padding: 25px; 
+
+            margin-top: 30px; 
+
+        } 
+
+         
+
+        .results-header { 
+
+            display: flex; 
+
+            justify-content: space-between; 
+
+            align-items: center; 
+
+            margin-bottom: 20px; 
+
+            padding-bottom: 15px; 
+
+            border-bottom: 1px solid #e2e8f0; 
+
+        } 
+
+         
+
+        .results-stats { 
+
+            display: grid; 
+
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+
+            gap: 20px; 
+
+            margin-bottom: 30px; 
+
+        } 
+
+         
+
+        .stat-card { 
+
+            text-align: center; 
+
+            padding: 20px; 
+
+            border-radius: 8px; 
+
+            background-color: #f7fafc; 
+
+        } 
+
+         
+
+        .stat-value { 
+
+            font-size: 2.5rem; 
+
+            font-weight: 700; 
+
+            margin-bottom: 10px; 
+
+        } 
+
+         
+
+        .stat-correct { 
+
+            color: var(--success); 
+
+        } 
+
+         
+
+        .stat-incorrect { 
+
+            color: var(--danger); 
+
+        } 
+
+         
+
+        .stat-pending { 
+
+            color: var(--warning); 
+
+        } 
+
+         
+
+        .simulado-list { 
+
+            display: grid; 
+
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+
+            gap: 20px; 
+
+            margin-top: 20px; 
+
+        } 
+
+         
+
+        .simulado-card { 
+
+            background: white; 
+
+            border-radius: 10px; 
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+
+            padding: 20px; 
+
+            transition: transform 0.3s; 
+
+        } 
+
+         
+
+        .simulado-card:hover { 
+
+            transform: translateY(-5px); 
+
+        } 
+
+         
+
+        .simulado-card-header { 
+
+            display: flex; 
+
+            justify-content: space-between; 
+
+            align-items: center; 
+
+            margin-bottom: 15px; 
+
+        } 
+
+         
+
+        .simulado-title { 
+
+            font-size: 1.3rem; 
+
+            font-weight: 600; 
+
+            color: var(--primary); 
+
+        } 
+
+         
+
+        .simulado-info { 
+
+            display: flex; 
+
+            gap: 15px; 
+
+            margin-bottom: 15px; 
+
+            color: #718096; 
+
+            font-size: 0.9rem; 
+
+        } 
+
+         
+
+        .simulado-actions { 
+
+            display: flex; 
+
+            gap: 10px; 
+
+        } 
+
+         
+
+        .modal { 
+
+            display: none; 
+
+            position: fixed; 
+
+            top: 0; 
+
+            left: 0; 
+
+            width: 100%; 
+
+            height: 100%; 
+
+            background-color: rgba(0, 0, 0, 0.5); 
+
+            z-index: 1000; 
+
+            align-items: center; 
+
+            justify-content: center; 
+
+        } 
+
+         
+
+        .modal-content { 
+
+            background: white; 
+
+            border-radius: 10px; 
+
+            width: 90%; 
+
+            max-width: 600px; 
+
+            max-height: 90vh; 
+
+            overflow-y: auto; 
+
+            padding: 30px; 
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
+
+        } 
+
+         
+
+        .modal-header { 
+
+            display: flex; 
+
+            justify-content: space-between; 
+
+            align-items: center; 
+
+            margin-bottom: 20px; 
+
+            padding-bottom: 15px; 
+
+            border-bottom: 1px solid #e2e8f0; 
+
+        } 
+
+         
+
+        .modal-title { 
+
+            font-size: 1.5rem; 
+
+            font-weight: 600; 
+
+            color: var(--primary); 
+
+        } 
+
+         
+
+        .close-modal { 
+
+            background: none; 
+
+            border: none; 
+
+            font-size: 1.5rem; 
+
+            cursor: pointer; 
+
+            color: #718096; 
+
+        } 
+
+         
+
+        .footer { 
+
+            background-color: var(--secondary); 
+
+            color: white; 
+
+            padding: 30px 0; 
+
+            margin-top: 50px; 
+
+        } 
+
+         
+
+        .footer-content { 
+
+            display: flex; 
+
+            justify-content: space-between; 
+
+            align-items: center; 
+
+        } 
+
+         
+
+        .footer-logo { 
+
+            font-size: 1.5rem; 
+
+            font-weight: 700; 
+
+        } 
+
+         
+
+        .footer-links { 
+
+            display: flex; 
+
+            gap: 20px; 
+
+        } 
+
+         
+
+        .footer-links a { 
+
+            color: white; 
+
+            text-decoration: none; 
+
+        } 
+
+         
+
+        .footer-links a:hover { 
+
+            text-decoration: underline; 
+
+        } 
+
+         
+
+        .hidden { 
+
+            display: none; 
+
+        } 
+
+         
+
+        .tab-container { 
+
+            margin-top: 30px; 
+
+        } 
+
+         
+
+        .tabs { 
+
+            display: flex; 
+
+            border-bottom: 1px solid #e2e8f0; 
+
+            margin-bottom: 20px; 
+
+        } 
+
+         
+
+        .tab { 
+
+            padding: 12px 20px; 
+
+            cursor: pointer; 
+
+            border-bottom: 3px solid transparent; 
+
+            transition: all 0.3s; 
+
+        } 
+
+         
+
+        .tab.active { 
+
+            border-bottom-color: var(--primary); 
+
+            color: var(--primary); 
+
+            font-weight: 500; 
+
+        } 
+
+         
+
+        .tab-content { 
+
+            display: none; 
+
+        } 
+
+         
+
+        .tab-content.active { 
+
+            display: block; 
+
+        } 
+
+         
+
+        @media (max-width: 768px) { 
+
+            .header-content { 
+
+                flex-direction: column; 
+
+                gap: 15px; 
+
+            } 
+
+             
+
+            nav ul { 
+
+                flex-wrap: wrap; 
+
+                justify-content: center; 
+
+            } 
+
+             
+
+            .dashboard { 
+
+                grid-template-columns: 1fr; 
+
+            } 
+
+             
+
+            .results-stats { 
+
+                grid-template-columns: 1fr; 
+
+            } 
+
+             
+
+            .simulado-list { 
+
+                grid-template-columns: 1fr; 
+
+            } 
+
+             
+
+            .footer-content { 
+
+                flex-direction: column; 
+
+                gap: 20px; 
+
+                text-align: center; 
+
+            } 
+
+        } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+    <!-- Header --> 
+
+    <header> 
+
+        <div class="container"> 
+
+            <div class="header-content"> 
+
+                <div class="logo"> 
+
+                    <i class="fas fa-graduation-cap"></i> 
+
+                    <div> 
+
+                        <h1>RIBETTI PREPARATÓRIO</h1> 
+
+                        <span>ÁREA POLICIAL</span> 
+
+                    </div> 
+
+                </div> 
+
+                <nav> 
+
+                    <ul> 
+
+                        <li><a href="#" class="active" id="nav-home"><i class="fas fa-home"></i> Início</a></li> 
+
+                        <li><a href="#" id="nav-simulados"><i class="fas fa-file-alt"></i> Simulados</a></li> 
+
+                        <li><a href="#" id="nav-admin"><i class="fas fa-user-shield"></i> Administrador</a></li> 
+
+                    </ul> 
+
+                </nav> 
+
+            </div> 
+
+        </div> 
+
+    </header> 
+
+ 
+
+    <!-- Main Content --> 
+
+    <main class="container"> 
+
+        <!-- Home Section --> 
+
+        <section id="home-section"> 
+
+            <div class="card"> 
+
+                <div class="card-header"> 
+
+                    <h2 class="card-title">Bem-vindo ao RIBETTI PREPARATÓRIO</h2> 
+
+                </div> 
+
+                <p>Prepare-se para os principais concursos da área policial com nossos simulados especializados. Teste seus conhecimentos, identifique suas fraquezas e melhore seu desempenho.</p> 
+
+                <div class="dashboard"> 
+
+                    <div class="dashboard-card"> 
+
+                        <i class="fas fa-file-alt"></i> 
+
+                        <h3>Simulados Disponíveis</h3> 
+
+                        <p id="simulados-count">0 simulados disponíveis</p> 
+
+                        <button class="btn btn-primary" id="btn-ver-simulados"> 
+
+                            <i class="fas fa-eye"></i> Ver Simulados 
+
+                        </button> 
+
+                    </div> 
+
+                    <div class="dashboard-card"> 
+
+                        <i class="fas fa-chart-line"></i> 
+
+                        <h3>Seu Progresso</h3> 
+
+                        <p>Visualize seu desempenho nos simulados</p> 
+
+                        <button class="btn btn-secondary" id="btn-ver-progresso"> 
+
+                            <i class="fas fa-chart-bar"></i> Ver Progresso 
+
+                        </button> 
+
+                    </div> 
+
+                    <div class="dashboard-card"> 
+
+                        <i class="fas fa-cog"></i> 
+
+                        <h3>Área do Administrador</h3> 
+
+                        <p>Gerencie simulados e questões</p> 
+
+                        <button class="btn btn-warning" id="btn-ir-admin"> 
+
+                            <i class="fas fa-user-shield"></i> Acessar 
+
+                        </button> 
+
+                    </div> 
+
+                </div> 
+
+            </div> 
+
+        </section> 
+
+ 
+
+        <!-- Simulados Section --> 
+
+        <section id="simulados-section" class="hidden"> 
+
+            <div class="card"> 
+
+                <div class="card-header"> 
+
+                    <h2 class="card-title">Simulados Disponíveis</h2> 
+
+                    <button class="btn btn-primary" id="btn-novo-simulado"> 
+
+                        <i class="fas fa-plus"></i> Novo Simulado 
+
+                    </button> 
+
+                </div> 
+
+                <div class="simulado-list" id="simulado-list"> 
+
+                    <!-- Simulados serão carregados aqui dinamicamente --> 
+
+                </div> 
+
+            </div> 
+
+        </section> 
+
+ 
+
+        <!-- Admin Section --> 
+
+        <section id="admin-section" class="hidden"> 
+
+            <div class="card"> 
+
+                <div class="card-header"> 
+
+                    <h2 class="card-title">Área do Administrador</h2> 
+
+                </div> 
+
+                 
+
+                <div class="tab-container"> 
+
+                    <div class="tabs"> 
+
+                        <div class="tab active" data-tab="importar">Importar Simulado</div> 
+
+                        <div class="tab" data-tab="gerenciar">Gerenciar Simulados</div> 
+
+                    </div> 
+
+                     
+
+                    <div class="tab-content active" id="importar-tab"> 
+
+                        <div class="form-group"> 
+
+                            <label for="json-text">Cole o JSON do simulado:</label> 
+
+                            <textarea id="json-text" class="form-control" placeholder='{ 
+
+  "titulo": "Nome do Simulado", 
+
+  "questoes": [ 
+
+    { 
+
+      "enunciado": "Texto da questão...", 
+
+      "alternativas": [ 
+
+        "Alternativa A", 
+
+        "Alternativa B", 
+
+        "Alternativa C", 
+
+        "Alternativa D" 
+
+      ], 
+
+      "respostaCorreta": 0 
+
+    } 
+
+  ] 
+
+}'></textarea> 
+
+                        </div> 
+
+                         
+
+                        <div class="form-group"> 
+
+                            <label>Ou faça upload de um arquivo JSON:</label> 
+
+                            <input type="file" id="json-file" class="form-control" accept=".json"> 
+
+                        </div> 
+
+                         
+
+                        <button class="btn btn-success" id="btn-importar"> 
+
+                            <i class="fas fa-upload"></i> Importar Simulado 
+
+                        </button> 
+
+                    </div> 
+
+                     
+
+                    <div class="tab-content" id="gerenciar-tab"> 
+
+                        <div class="simulado-list" id="admin-simulado-list"> 
+
+                            <!-- Simulados para gerenciamento serão carregados aqui --> 
+
+                        </div> 
+
+                    </div> 
+
+                </div> 
+
+            </div> 
+
+        </section> 
+
+ 
+
+        <!-- Simulado em Andamento --> 
+
+        <section id="simulado-section" class="hidden"> 
+
+            <div class="card"> 
+
+                <div class="card-header"> 
+
+                    <h2 class="card-title" id="simulado-title">Simulado em Andamento</h2> 
+
+                    <div> 
+
+                        <button class="btn btn-secondary" id="btn-voltar-simulados"> 
+
+                            <i class="fas fa-arrow-left"></i> Voltar 
+
+                        </button> 
+
+                        <button class="btn btn-primary" id="btn-finalizar-simulado"> 
+
+                            <i class="fas fa-flag-checkered"></i> Finalizar 
+
+                        </button> 
+
+                    </div> 
+
+                </div> 
+
+                 
+
+                <div id="questoes-container"> 
+
+                    <!-- Questões serão carregadas aqui dinamicamente --> 
+
+                </div> 
+
+            </div> 
+
+             
+
+            <div class="results-summary hidden" id="results-summary"> 
+
+                <div class="results-header"> 
+
+                    <h2 class="card-title">Resultado do Simulado</h2> 
+
+                    <button class="btn btn-primary" id="btn-reiniciar-simulado"> 
+
+                        <i class="fas fa-redo"></i> Reiniciar Simulado 
+
+                    </button> 
+
+                </div> 
+
+                 
+
+                <div class="results-stats"> 
+
+                    <div class="stat-card"> 
+
+                        <div class="stat-value stat-correct" id="correct-count">0</div> 
+
+                        <div>Questões Corretas</div> 
+
+                    </div> 
+
+                    <div class="stat-card"> 
+
+                        <div class="stat-value stat-incorrect" id="incorrect-count">0</div> 
+
+                        <div>Questões Incorretas</div> 
+
+                    </div> 
+
+                    <div class="stat-card"> 
+
+                        <div class="stat-value stat-pending" id="score-percent">0%</div> 
+
+                        <div>Percentual de Acerto</div> 
+
+                    </div> 
+
+                </div> 
+
+                 
+
+                <div id="detailed-results"> 
+
+                    <!-- Resultados detalhados serão carregados aqui --> 
+
+                </div> 
+
+            </div> 
+
+        </section> 
+
+    </main> 
+
+ 
+
+    <!-- Footer --> 
+
+    <footer class="footer"> 
+
+        <div class="container"> 
+
+            <div class="footer-content"> 
+
+                <div class="footer-logo">RIBETTI PREPARATÓRIO</div> 
+
+                <div class="footer-links"> 
+
+                    <a href="#">Sobre</a> 
+
+                    <a href="#">Contato</a> 
+
+                    <a href="#">Política de Privacidade</a> 
+
+                </div> 
+
+            </div> 
+
+        </div> 
+
+    </footer> 
+
+ 
+
+    <!-- Modal para Novo Simulado --> 
+
+    <div class="modal" id="novo-simulado-modal"> 
+
+        <div class="modal-content"> 
+
+            <div class="modal-header"> 
+
+                <h3 class="modal-title">Criar Novo Simulado</h3> 
+
+                <button class="close-modal">&times;</button> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="novo-simulado-titulo">Título do Simulado:</label> 
+
+                <input type="text" id="novo-simulado-titulo" class="form-control" placeholder="Ex: Simulado Polícia Civil - Língua Portuguesa"> 
+
+            </div> 
+
+            <div class="form-group"> 
+
+                <label for="novo-simulado-descricao">Descrição (opcional):</label> 
+
+                <textarea id="novo-simulado-descricao" class="form-control" placeholder="Descreva o conteúdo do simulado..."></textarea> 
+
+            </div> 
+
+            <button class="btn btn-success" id="btn-criar-simulado"> 
+
+                <i class="fas fa-plus"></i> Criar Simulado 
+
+            </button> 
+
+        </div> 
+
+    </div> 
+
+ 
+
+    <script> 
+
+        // Dados de exemplo 
+
+        let simulados = JSON.parse(localStorage.getItem('ribetti-simulados')) || [ 
+
+            { 
+
+                id: 1, 
+
+                titulo: "Simulado Polícia Civil - Língua Portuguesa", 
+
+                descricao: "Questões de Língua Portuguesa para concursos da Polícia Civil", 
+
+                dataCriacao: "2023-10-15", 
+
+                questoes: [ 
+
+                    { 
+
+                        id: 1, 
+
+                        enunciado: "Em: 'Se você apenas exportar commodities para a China, nunca conseguirá esse efeito positivo do emprego industrial na sociedade, dado que você não precisará de tanta mão de obra remunerada e de alta produtividade', conclui. Pode ser substituída, sem alteração de sentido, a expressão destacada no texto por:", 
+
+                        alternativas: [ 
+
+                            "A) Ainda que.", 
+
+                            "B) Desde que.", 
+
+                            "C) Porquanto.", 
+
+                            "D) Apesar de que." 
+
+                        ], 
+
+                        respostaCorreta: 2 
+
+                    }, 
+
+                    { 
+
+                        id: 2, 
+
+                        enunciado: "Assinale a alternativa em que todas as palavras são acentuadas pela mesma regra:", 
+
+                        alternativas: [ 
+
+                            "A) útil, táxi, álcool", 
+
+                            "B) âmbito, cônsul, pêssego", 
+
+                            "C) vírus, bônus, ônus", 
+
+                            "D) ânsia, tênue, ciência" 
+
+                        ], 
+
+                        respostaCorreta: 1 
+
+                    } 
+
+                ] 
+
+            } 
+
+        ]; 
+
+ 
+
+        // Estado da aplicação 
+
+        let estado = { 
+
+            secaoAtiva: 'home', 
+
+            simuladoAtual: null, 
+
+            respostas: {}, 
+
+            resultados: {} 
+
+        }; 
+
+ 
+
+        // Elementos DOM 
+
+        const homeSection = document.getElementById('home-section'); 
+
+        const simuladosSection = document.getElementById('simulados-section'); 
+
+        const adminSection = document.getElementById('admin-section'); 
+
+        const simuladoSection = document.getElementById('simulado-section'); 
+
+        const simuladoList = document.getElementById('simulado-list'); 
+
+        const adminSimuladoList = document.getElementById('admin-simulado-list'); 
+
+        const simuladosCount = document.getElementById('simulados-count'); 
+
+        const btnVerSimulados = document.getElementById('btn-ver-simulados'); 
+
+        const btnIrAdmin = document.getElementById('btn-ir-admin'); 
+
+        const btnNovoSimulado = document.getElementById('btn-novo-simulado'); 
+
+        const btnImportar = document.getElementById('btn-importar'); 
+
+        const btnFinalizarSimulado = document.getElementById('btn-finalizar-simulado'); 
+
+        const btnVoltarSimulados = document.getElementById('btn-voltar-simulados'); 
+
+        const btnReiniciarSimulado = document.getElementById('btn-reiniciar-simulado'); 
+
+        const navHome = document.getElementById('nav-home'); 
+
+        const navSimulados = document.getElementById('nav-simulados'); 
+
+        const navAdmin = document.getElementById('nav-admin'); 
+
+        const jsonText = document.getElementById('json-text'); 
+
+        const jsonFile = document.getElementById('json-file'); 
+
+        const novoSimuladoModal = document.getElementById('novo-simulado-modal'); 
+
+        const btnCriarSimulado = document.getElementById('btn-criar-simulado'); 
+
+        const resultsSummary = document.getElementById('results-summary'); 
+
+        const correctCount = document.getElementById('correct-count'); 
+
+        const incorrectCount = document.getElementById('incorrect-count'); 
+
+        const scorePercent = document.getElementById('score-percent'); 
+
+        const detailedResults = document.getElementById('detailed-results'); 
+
+        const tabs = document.querySelectorAll('.tab'); 
+
+        const tabContents = document.querySelectorAll('.tab-content'); 
+
+ 
+
+        // Inicialização 
+
+        document.addEventListener('DOMContentLoaded', function() { 
+
+            atualizarContadorSimulados(); 
+
+            renderizarSimulados(); 
+
+            renderizarSimuladosAdmin(); 
+
+            configurarEventListeners(); 
+
+        }); 
+
+ 
+
+        // Configurar event listeners 
+
+        function configurarEventListeners() { 
+
+            // Navegação 
+
+            navHome.addEventListener('click', () => mostrarSecao('home')); 
+
+            navSimulados.addEventListener('click', () => mostrarSecao('simulados')); 
+
+            navAdmin.addEventListener('click', () => mostrarSecao('admin')); 
+
+             
+
+            // Botões da página inicial 
+
+            btnVerSimulados.addEventListener('click', () => mostrarSecao('simulados')); 
+
+            btnIrAdmin.addEventListener('click', () => mostrarSecao('admin')); 
+
+             
+
+            // Botões da área de simulados 
+
+            btnNovoSimulado.addEventListener('click', () => novoSimuladoModal.style.display = 'flex'); 
+
+             
+
+            // Botões da área administrativa 
+
+            btnImportar.addEventListener('click', importarSimulado); 
+
+            jsonFile.addEventListener('change', handleFileUpload); 
+
+             
+
+            // Botões do simulado 
+
+            btnFinalizarSimulado.addEventListener('click', finalizarSimulado); 
+
+            btnVoltarSimulados.addEventListener('click', () => mostrarSecao('simulados')); 
+
+            btnReiniciarSimulado.addEventListener('click', reiniciarSimulado); 
+
+             
+
+            // Modal 
+
+            document.querySelector('.close-modal').addEventListener('click', () => novoSimuladoModal.style.display = 'none'); 
+
+            btnCriarSimulado.addEventListener('click', criarSimuladoVazio); 
+
+             
+
+            // Tabs 
+
+            tabs.forEach(tab => { 
+
+                tab.addEventListener('click', () => { 
+
+                    const tabId = tab.getAttribute('data-tab'); 
+
+                    ativarTab(tabId); 
+
+                }); 
+
+            }); 
+
+             
+
+            // Fechar modal ao clicar fora 
+
+            window.addEventListener('click', (e) => { 
+
+                if (e.target === novoSimuladoModal) { 
+
+                    novoSimuladoModal.style.display = 'none'; 
+
+                } 
+
+            }); 
+
+        } 
+
+ 
+
+        // Funções de navegação 
+
+        function mostrarSecao(secao) { 
+
+            estado.secaoAtiva = secao; 
+
+             
+
+            // Ocultar todas as seções 
+
+            homeSection.classList.add('hidden'); 
+
+            simuladosSection.classList.add('hidden'); 
+
+            adminSection.classList.add('hidden'); 
+
+            simuladoSection.classList.add('hidden'); 
+
+             
+
+            // Remover classe active de todos os links de navegação 
+
+            navHome.classList.remove('active'); 
+
+            navSimulados.classList.remove('active'); 
+
+            navAdmin.classList.remove('active'); 
+
+             
+
+            // Mostrar seção selecionada e atualizar navegação 
+
+            switch(secao) { 
+
+                case 'home': 
+
+                    homeSection.classList.remove('hidden'); 
+
+                    navHome.classList.add('active'); 
+
+                    break; 
+
+                case 'simulados': 
+
+                    simuladosSection.classList.remove('hidden'); 
+
+                    navSimulados.classList.add('active'); 
+
+                    renderizarSimulados(); 
+
+                    break; 
+
+                case 'admin': 
+
+                    adminSection.classList.remove('hidden'); 
+
+                    navAdmin.classList.add('active'); 
+
+                    renderizarSimuladosAdmin(); 
+
+                    break; 
+
+            } 
+
+        } 
+
+ 
+
+        // Funções para simulados 
+
+        function atualizarContadorSimulados() { 
+
+            simuladosCount.textContent = `${simulados.length} simulados disponíveis`; 
+
+        } 
+
+ 
+
+        function renderizarSimulados() { 
+
+            simuladoList.innerHTML = ''; 
+
+             
+
+            if (simulados.length === 0) { 
+
+                simuladoList.innerHTML = '<p>Nenhum simulado disponível. Vá para a área de administrador para adicionar simulados.</p>'; 
+
+                return; 
+
+            } 
+
+             
+
+            simulados.forEach(simulado => { 
+
+                const simuladoCard = document.createElement('div'); 
+
+                simuladoCard.className = 'simulado-card'; 
+
+                simuladoCard.innerHTML = ` 
+
+                    <div class="simulado-card-header"> 
+
+                        <h3 class="simulado-title">${simulado.titulo}</h3> 
+
+                    </div> 
+
+                    <p>${simulado.descricao || 'Sem descrição'}</p> 
+
+                    <div class="simulado-info"> 
+
+                        <span><i class="fas fa-question-circle"></i> ${simulado.questoes.length} questões</span> 
+
+                        <span><i class="fas fa-calendar"></i> ${simulado.dataCriacao || 'Data não informada'}</span> 
+
+                    </div> 
+
+                    <div class="simulado-actions"> 
+
+                        <button class="btn btn-primary btn-iniciar-simulado" data-id="${simulado.id}"> 
+
+                            <i class="fas fa-play"></i> Iniciar 
+
+                        </button> 
+
+                    </div> 
+
+                `; 
+
+                simuladoList.appendChild(simuladoCard); 
+
+            }); 
+
+             
+
+            // Adicionar event listeners aos botões de iniciar simulado 
+
+            document.querySelectorAll('.btn-iniciar-simulado').forEach(btn => { 
+
+                btn.addEventListener('click', function() { 
+
+                    const simuladoId = parseInt(this.getAttribute('data-id')); 
+
+                    iniciarSimulado(simuladoId); 
+
+                }); 
+
+            }); 
+
+        } 
+
+ 
+
+        function renderizarSimuladosAdmin() { 
+
+            adminSimuladoList.innerHTML = ''; 
+
+             
+
+            if (simulados.length === 0) { 
+
+                adminSimuladoList.innerHTML = '<p>Nenhum simulado cadastrado.</p>'; 
+
+                return; 
+
+            } 
+
+             
+
+            simulados.forEach(simulado => { 
+
+                const simuladoCard = document.createElement('div'); 
+
+                simuladoCard.className = 'simulado-card'; 
+
+                simuladoCard.innerHTML = ` 
+
+                    <div class="simulado-card-header"> 
+
+                        <h3 class="simulado-title">${simulado.titulo}</h3> 
+
+                    </div> 
+
+                    <p>${simulado.descricao || 'Sem descrição'}</p> 
+
+                    <div class="simulado-info"> 
+
+                        <span><i class="fas fa-question-circle"></i> ${simulado.questoes.length} questões</span> 
+
+                        <span><i class="fas fa-calendar"></i> ${simulado.dataCriacao || 'Data não informada'}</span> 
+
+                    </div> 
+
+                    <div class="simulado-actions"> 
+
+                        <button class="btn btn-danger btn-excluir-simulado" data-id="${simulado.id}"> 
+
+                            <i class="fas fa-trash"></i> Excluir 
+
+                        </button> 
+
+                    </div> 
+
+                `; 
+
+                adminSimuladoList.appendChild(simuladoCard); 
+
+            }); 
+
+             
+
+            // Adicionar event listeners aos botões de excluir 
+
+            document.querySelectorAll('.btn-excluir-simulado').forEach(btn => { 
+
+                btn.addEventListener('click', function() { 
+
+                    const simuladoId = parseInt(this.getAttribute('data-id')); 
+
+                    excluirSimulado(simuladoId); 
+
+                }); 
+
+            }); 
+
+        } 
+
+ 
+
+        function iniciarSimulado(simuladoId) { 
+
+            estado.simuladoAtual = simulados.find(s => s.id === simuladoId); 
+
+            estado.respostas = {}; 
+
+            estado.resultados = {}; 
+
+             
+
+            // Mostrar seção do simulado 
+
+            homeSection.classList.add('hidden'); 
+
+            simuladosSection.classList.add('hidden'); 
+
+            adminSection.classList.add('hidden'); 
+
+            simuladoSection.classList.remove('hidden'); 
+
+            resultsSummary.classList.add('hidden'); 
+
+             
+
+            // Atualizar título 
+
+            document.getElementById('simulado-title').textContent = estado.simuladoAtual.titulo; 
+
+             
+
+            // Renderizar questões 
+
+            const container = document.getElementById('questoes-container'); 
+
+            container.innerHTML = ''; 
+
+             
+
+            estado.simuladoAtual.questoes.forEach((questao, index) => { 
+
+                const questaoElement = document.createElement('div'); 
+
+                questaoElement.className = 'question-container'; 
+
+                questaoElement.id = `questao-${index}`; 
+
+                 
+
+                let alternativasHTML = ''; 
+
+                questao.alternativas.forEach((alt, altIndex) => { 
+
+                    alternativasHTML += ` 
+
+                        <div class="alternative" data-questao="${index}" data-alternativa="${altIndex}"> 
+
+                            <div class="alternative-label">${String.fromCharCode(65 + altIndex)})</div> 
+
+                            <div class="alternative-text">${alt}</div> 
+
+                        </div> 
+
+                    `; 
+
+                }); 
+
+                 
+
+                questaoElement.innerHTML = ` 
+
+                    <div class="question-header">Questão ${index + 1}</div> 
+
+                    <div class="question-body"> 
+
+                        <div class="question-text">${questao.enunciado}</div> 
+
+                        <div class="alternatives"> 
+
+                            ${alternativasHTML} 
+
+                        </div> 
+
+                    </div> 
+
+                `; 
+
+                 
+
+                container.appendChild(questaoElement); 
+
+            }); 
+
+             
+
+            // Adicionar event listeners às alternativas 
+
+            document.querySelectorAll('.alternative').forEach(alt => { 
+
+                alt.addEventListener('click', function() { 
+
+                    const questaoIndex = parseInt(this.getAttribute('data-questao')); 
+
+                    const alternativaIndex = parseInt(this.getAttribute('data-alternativa')); 
+
+                     
+
+                    selecionarAlternativa(questaoIndex, alternativaIndex); 
+
+                }); 
+
+            }); 
+
+        } 
+
+ 
+
+        function selecionarAlternativa(questaoIndex, alternativaIndex) { 
+
+            // Registrar resposta 
+
+            estado.respostas[questaoIndex] = alternativaIndex; 
+
+             
+
+            // Atualizar visual da questão 
+
+            const questaoElement = document.getElementById(`questao-${questaoIndex}`); 
+
+            const alternativas = questaoElement.querySelectorAll('.alternative'); 
+
+             
+
+            // Remover seleção anterior 
+
+            alternativas.forEach(alt => { 
+
+                alt.classList.remove('selected'); 
+
+            }); 
+
+             
+
+            // Marcar alternativa selecionada 
+
+            alternativas[alternativaIndex].classList.add('selected'); 
+
+             
+
+            // Verificar se a resposta está correta 
+
+            const questao = estado.simuladoAtual.questoes[questaoIndex]; 
+
+            const correta = alternativaIndex === questao.respostaCorreta; 
+
+             
+
+            // Atualizar estado 
+
+            estado.resultados[questaoIndex] = correta; 
+
+             
+
+            // Aplicar cor de acordo com o resultado 
+
+            if (correta) { 
+
+                questaoElement.classList.remove('incorrect'); 
+
+                questaoElement.classList.add('correct'); 
+
+            } else { 
+
+                questaoElement.classList.remove('correct'); 
+
+                questaoElement.classList.add('incorrect'); 
+
+                 
+
+                // Destacar também a resposta correta 
+
+                alternativas[questao.respostaCorreta].classList.add('correct'); 
+
+            } 
+
+        } 
+
+ 
+
+        function finalizarSimulado() { 
+
+            // Calcular resultados 
+
+            const totalQuestoes = estado.simuladoAtual.questoes.length; 
+
+            const respostas = Object.keys(estado.respostas).length; 
+
+            const corretas = Object.values(estado.resultados).filter(r => r).length; 
+
+            const incorretas = respostas - corretas; 
+
+            const percentual = Math.round((corretas / totalQuestoes) * 100); 
+
+             
+
+            // Atualizar estatísticas 
+
+            correctCount.textContent = corretas; 
+
+            incorrectCount.textContent = incorretas; 
+
+            scorePercent.textContent = `${percentual}%`; 
+
+             
+
+            // Mostrar resultados detalhados 
+
+            detailedResults.innerHTML = ''; 
+
+             
+
+            estado.simuladoAtual.questoes.forEach((questao, index) => { 
+
+                const resultado = estado.resultados[index]; 
+
+                const respostaUsuario = estado.respostas[index]; 
+
+                const classe = resultado ? 'correct' : 'incorrect'; 
+
+                const icone = resultado ? 'fa-check' : 'fa-times'; 
+
+                const texto = resultado ? 'Correta' : 'Incorreta'; 
+
+                 
+
+                const resultadoElement = document.createElement('div'); 
+
+                resultadoElement.className = `question-container ${classe}`; 
+
+                resultadoElement.innerHTML = ` 
+
+                    <div class="question-header"> 
+
+                        Questão ${index + 1}  
+
+                        <span><i class="fas ${icone}"></i> ${texto}</span> 
+
+                    </div> 
+
+                    <div class="question-body"> 
+
+                        <div class="question-text">${questao.enunciado}</div> 
+
+                        <div class="alternatives"> 
+
+                            ${questao.alternativas.map((alt, altIndex) => { 
+
+                                let classeAlt = ''; 
+
+                                if (altIndex === questao.respostaCorreta) { 
+
+                                    classeAlt = 'correct'; 
+
+                                } else if (altIndex === respostaUsuario && altIndex !== questao.respostaCorreta) { 
+
+                                    classeAlt = 'incorrect'; 
+
+                                } 
+
+                                 
+
+                                return ` 
+
+                                    <div class="alternative ${classeAlt}"> 
+
+                                        <div class="alternative-label">${String.fromCharCode(65 + altIndex)})</div> 
+
+                                        <div class="alternative-text">${alt}</div> 
+
+                                    </div> 
+
+                                `; 
+
+                            }).join('')} 
+
+                        </div> 
+
+                    </div> 
+
+                `; 
+
+                 
+
+                detailedResults.appendChild(resultadoElement); 
+
+            }); 
+
+             
+
+            // Mostrar resumo de resultados 
+
+            resultsSummary.classList.remove('hidden'); 
+
+        } 
+
+ 
+
+        function reiniciarSimulado() { 
+
+            if (estado.simuladoAtual) { 
+
+                iniciarSimulado(estado.simuladoAtual.id); 
+
+            } 
+
+        } 
+
+ 
+
+        // Funções administrativas 
+
+        function importarSimulado() { 
+
+            let jsonData; 
+
+             
+
+            // Tentar obter dados do textarea primeiro 
+
+            if (jsonText.value.trim()) { 
+
+                try { 
+
+                    jsonData = JSON.parse(jsonText.value); 
+
+                } catch (e) { 
+
+                    alert('Erro: JSON inválido no campo de texto.'); 
+
+                    return; 
+
+                } 
+
+            } else if (jsonFile.files.length > 0) { 
+
+                // Se não há texto, verificar se há arquivo 
+
+                const file = jsonFile.files[0]; 
+
+                const reader = new FileReader(); 
+
+                 
+
+                reader.onload = function(e) { 
+
+                    try { 
+
+                        jsonData = JSON.parse(e.target.result); 
+
+                        processarImportacao(jsonData); 
+
+                    } catch (error) { 
+
+                        alert('Erro: Não foi possível ler o arquivo JSON.'); 
+
+                    } 
+
+                }; 
+
+                 
+
+                reader.readAsText(file); 
+
+                return; 
+
+            } else { 
+
+                alert('Por favor, cole o JSON no campo de texto ou selecione um arquivo JSON.'); 
+
+                return; 
+
+            } 
+
+             
+
+            processarImportacao(jsonData); 
+
+        } 
+
+ 
+
+        function processarImportacao(jsonData) { 
+
+            // Validar estrutura básica 
+
+            if (!jsonData.titulo || !jsonData.questoes || !Array.isArray(jsonData.questoes)) { 
+
+                alert('Erro: O JSON deve conter "titulo" e "questoes" (array).'); 
+
+                return; 
+
+            } 
+
+             
+
+            // Validar cada questão 
+
+            for (let i = 0; i < jsonData.questoes.length; i++) { 
+
+                const q = jsonData.questoes[i]; 
+
+                if (!q.enunciado || !q.alternativas || !Array.isArray(q.alternativas) ||  
+
+                    q.respostaCorreta === undefined || q.respostaCorreta === null) { 
+
+                    alert(`Erro na questão ${i+1}: deve conter "enunciado", "alternativas" (array) e "respostaCorreta".`); 
+
+                    return; 
+
+                } 
+
+                 
+
+                if (q.respostaCorreta < 0 || q.respostaCorreta >= q.alternativas.length) { 
+
+                    alert(`Erro na questão ${i+1}: "respostaCorreta" deve ser um índice válido (0 a ${q.alternativas.length - 1}).`); 
+
+                    return; 
+
+                } 
+
+            } 
+
+             
+
+            // Criar novo simulado 
+
+            const novoSimulado = { 
+
+                id: gerarId(), 
+
+                titulo: jsonData.titulo, 
+
+                descricao: jsonData.descricao || '', 
+
+                dataCriacao: new Date().toISOString().split('T')[0], 
+
+                questoes: jsonData.questoes.map((q, index) => ({ 
+
+                    id: index + 1, 
+
+                    enunciado: q.enunciado, 
+
+                    alternativas: q.alternativas, 
+
+                    respostaCorreta: q.respostaCorreta 
+
+                })) 
+
+            }; 
+
+             
+
+            // Adicionar à lista 
+
+            simulados.push(novoSimulado); 
+
+            salvarDados(); 
+
+             
+
+            // Limpar campos 
+
+            jsonText.value = ''; 
+
+            jsonFile.value = ''; 
+
+             
+
+            // Atualizar interface 
+
+            atualizarContadorSimulados(); 
+
+            renderizarSimuladosAdmin(); 
+
+             
+
+            alert('Simulado importado com sucesso!'); 
+
+        } 
+
+ 
+
+        function handleFileUpload(event) { 
+
+            const file = event.target.files[0]; 
+
+            if (!file) return; 
+
+             
+
+            const reader = new FileReader(); 
+
+            reader.onload = function(e) { 
+
+                try { 
+
+                    jsonText.value = e.target.result; 
+
+                } catch (error) { 
+
+                    alert('Erro ao ler arquivo.'); 
+
+                } 
+
+            }; 
+
+            reader.readAsText(file); 
+
+        } 
+
+ 
+
+        function criarSimuladoVazio() { 
+
+            const titulo = document.getElementById('novo-simulado-titulo').value; 
+
+            const descricao = document.getElementById('novo-simulado-descricao').value; 
+
+             
+
+            if (!titulo.trim()) { 
+
+                alert('Por favor, informe um título para o simulado.'); 
+
+                return; 
+
+            } 
+
+             
+
+            const novoSimulado = { 
+
+                id: gerarId(), 
+
+                titulo: titulo, 
+
+                descricao: descricao, 
+
+                dataCriacao: new Date().toISOString().split('T')[0], 
+
+                questoes: [] 
+
+            }; 
+
+             
+
+            simulados.push(novoSimulado); 
+
+            salvarDados(); 
+
+             
+
+            // Limpar e fechar modal 
+
+            document.getElementById('novo-simulado-titulo').value = ''; 
+
+            document.getElementById('novo-simulado-descricao').value = ''; 
+
+            novoSimuladoModal.style.display = 'none'; 
+
+             
+
+            // Atualizar interface 
+
+            atualizarContadorSimulados(); 
+
+            renderizarSimuladosAdmin(); 
+
+             
+
+            alert('Simulado criado com sucesso! Agora você pode importar questões para ele.'); 
+
+        } 
+
+ 
+
+        function excluirSimulado(id) { 
+
+            if (confirm('Tem certeza que deseja excluir este simulado?')) { 
+
+                simulados = simulados.filter(s => s.id !== id); 
+
+                salvarDados(); 
+
+                 
+
+                atualizarContadorSimulados(); 
+
+                renderizarSimulados(); 
+
+                renderizarSimuladosAdmin(); 
+
+                 
+
+                alert('Simulado excluído com sucesso!'); 
+
+            } 
+
+        } 
+
+ 
+
+        // Funções auxiliares 
+
+        function gerarId() { 
+
+            return simulados.length > 0 ? Math.max(...simulados.map(s => s.id)) + 1 : 1; 
+
+        } 
+
+ 
+
+        function salvarDados() { 
+
+            localStorage.setItem('ribetti-simulados', JSON.stringify(simulados)); 
+
+        } 
+
+ 
+
+        function ativarTab(tabId) { 
+
+            // Desativar todas as tabs 
+
+            tabs.forEach(tab => tab.classList.remove('active')); 
+
+            tabContents.forEach(content => content.classList.remove('active')); 
+
+             
+
+            // Ativar tab selecionada 
+
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active'); 
+
+            document.getElementById(`${tabId}-tab`).classList.add('active'); 
+
+        } 
+
+    </script> 
+
+</body> 
+
+</html> 
