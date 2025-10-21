@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREPARATÓRIO CONCURSOS - ÁREA POLICIAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====================================================================
+        ESTILOS GERAIS E VARIÁVEIS (AZUL PADRONIZADO)
+        ==================================================================== */
+        :root {
+            --primary: #1a365d; /* AZUL PADRÃO ESCURO */
+            --secondary: #2d3748; /* Cinza Escuro para Texto */
+            --accent: #e53e3e; /* Vermelho para Destaque/Erros */
+            --light: #f7fafc; /* Fundo Claro */
+            --success: #38a169; /* Verde (Correta) */
+            --danger: #e53e3e;  /* Vermelho (Incorreta) */
+            --border-gray: #e2e8f0;
+            --neutral-bg: #f0f2f5; /* CINZA CLARO para fundo */
+            --neutral-text: #a0aec0; /* Cinza para texto não respondido */
+            --header-bg: #1a365d; /* PADRONIZADO PARA O MAIS ESCURO */
+        }
+         
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Roboto', sans-serif; 
+        } 
+         
+        body { 
+            background-color: #f0f2f5; 
+            color: #333; 
+            line-height: 1.6; 
+        } 
+         
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        } 
+         
+        header { 
+            background-color: var(--header-bg);
+            padding: 10px 20px; 
+            border-bottom: 1px solid #102a43; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        } 
+         
+        header .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: white; 
+        } 
+         
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+        } 
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding: 5px 0;
+            border: 1px solid var(--border-gray);
+        }
+
+        .dropdown-content a {
+            color: var(--secondary) !important;
+            padding: 10px 15px !important;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-weight: 400 !important;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light);
+            color: var(--primary) !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+         
+        nav ul li a { 
+            display: block; 
+            padding: 10px 15px; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: 500; 
+            transition: color 0.3s, background-color 0.3s; 
+            border-radius: 5px; 
+        } 
+         
+        nav ul li a:hover, nav ul li a.active { 
+            color: var(--header-bg); 
+            background-color: var(--light); 
+        } 
+         
+        nav ul li a i { 
+            margin-right: 8px; 
+        } 
+         
+        main { 
+            padding: 20px 0; 
+        } 
+         
+        .tab-content { 
+            padding: 20px; 
+            background-color: white; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 20px; 
+        } 
+         
+        .hidden { 
+            display: none !important; 
+        } 
+         
+        .card { 
+            background: white; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            padding: 25px; 
+            margin-bottom: 20px; 
+        } 
+         
+        .card-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--border-gray); 
+            padding-bottom: 15px; 
+            margin-bottom: 20px; 
+        } 
+         
+        .card-title { 
+            font-size: 1.5rem; 
+            color: var(--primary); 
+            font-weight: 700; 
+        } 
+         
+        .btn { 
+            padding: 10px 15px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            transition: background-color 0.3s; 
+        } 
+         
+        .btn-primary { 
+            background-color: var(--primary); 
+            color: white;
+        } 
+         
+        .btn-primary:hover { 
+            background-color: #0b1f3c; /* Mais escuro que #1a365d */
+        } 
+         
+        .btn-secondary { 
+            background-color: #cbd5e0; 
+            color: var(--secondary); 
+            margin-left: 10px; 
+        } 
+         
+        .btn-secondary:hover { 
+            background-color: #a0aec0; 
+        } 
+         
+        .btn:disabled { 
+            opacity: 0.6; 
+            cursor: not-allowed; 
+        } 
+         
+        .simulado-card { 
+            background-color: var(--light); 
+            padding: 20px; 
+            border-radius: 8px; 
+            border-left: 5px solid var(--primary); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            cursor: pointer; 
+            transition: transform 0.2s; 
+        } 
+         
+        .simulado-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); 
+        } 
+         
+        .enunciado { 
+            font-size: 1.1rem; 
+            margin-bottom: 20px; 
+            font-weight: 500; 
+            border-left: 3px solid var(--primary); 
+            padding-left: 15px; 
+        } 
+         
+        .questao-footer { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-top: 20px; 
+            border-top: 1px solid var(--border-gray); 
+            padding-top: 20px; 
+        } 
+         
+        .simulado-layout {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; 
+        }
+        
+        .questoes-main {
+            flex: 3; 
+            min-width: 60%;
+        }
+        
+        .mapa-lateral {
+            flex: 1; 
+            position: sticky;
+            top: 100px; 
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            min-width: 250px;
+        }
+        
+        .mapa-header {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-gray);
+            padding-bottom: 10px;
+        }
+        
+        /* ====================================================================
+        ESTILOS DO NOVO GABARITO LATERAL (LISTA)
+        ==================================================================== */
+
+        .gabarito-resumo-list {
+            list-style: none;
+            padding: 0;
+            max-height: 500px; 
+            overflow-y: auto;
+        }
+
+        .gabarito-resumo-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-gray);
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .gabarito-resumo-item:hover {
+            background-color: var(--neutral-bg);
+        }
+        
+        /* Item atual (em foco) */
+        .gabarito-resumo-item.current-question {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+            border-bottom: none;
+        }
+
+        .gabarito-resumo-item-status {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Status Colors (NOVO MODELO) */
+        /* Não Respondida */
+        .status-nao-respondida {
+            background-color: var(--neutral-text); 
+            color: var(--light);
+        }
+        /* Respondida */
+        .status-respondida {
+            background-color: var(--success); 
+        }
+        
+        /* Destaque do status na questão atual */
+        .gabarito-resumo-item.current-question .status-respondida {
+            background-color: white; 
+            color: var(--primary);
+        }
+        .gabarito-resumo-item.current-question .status-nao-respondida {
+            background-color: white; 
+            color: var(--primary);
+        }
+
+        /* Estilos das Alternativas (Mantidos) */
+        .alternativa-item { 
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-gray);
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 400;
+            position: relative;
+            color: #333;
+        }
+        
+        .alternativa-item:hover:not(:disabled) {
+            background-color: var(--light);
+            border-color: var(--primary);
+        }
+        
+        .alternativa-item:disabled {
+            cursor: default;
+            opacity: 0.9;
+        }
+        
+        /* Destaque das alternativas (Versão Professor) */
+        .alternativa-item.clicked-correct {
+            background-color: rgba(56, 161, 105, 0.1) !important; 
+            border-color: var(--success) !important;
+            font-weight: 500;
+            color: var(--success) !important;
+        }
+        
+        .alternativa-item.clicked-incorrect {
+            background-color: rgba(229, 62, 62, 0.1) !important; 
+            border-color: var(--danger) !important;
+            font-weight: 500;
+            color: var(--danger) !important;
+        }
+        
+        .alternativa-item .fa-check-circle,
+        .alternativa-item .fa-times-circle {
+            position: absolute;
+            right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .alternativa-item.clicked-correct .fa-check-circle {
+            color: var(--success);
+        }
+        
+        .alternativa-item.clicked-incorrect .fa-times-circle {
+            color: var(--danger);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .simulado-layout {
+                flex-direction: column;
+            }
+            .mapa-lateral {
+                position: relative;
+                top: 0;
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">PREPARATÓRIO CONCURSOS</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" id="nav-home" data-tab="home"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#" id="nav-simulados" data-tab="simulados"><i class="fas fa-file-alt"></i> Simulados (<span id="simulados-count">0</span>)</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" id="nav-pdf-dropdown" class="dropbtn"><i class="fas fa-file-pdf"></i> PDFs <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content" id="pdf-dropdown-content">
+                        </div>
+                </li>
+                
+                <li><a href="#" id="nav-resultados" data-tab="resultados"><i class="fas fa-chart-line"></i> Resultados</a></li>
+                <li><a href="#" id="nav-admin" data-tab="admin"><i class="fas fa-user-shield"></i> Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home-section" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">Bem-vindo(a) à sua Área de Estudos!</h2>
+                <p>Aqui você pode acessar e gerenciar todos os seus simulados. Use o menu acima para navegar:</p>
+                <ul>
+                    <li>**Simulados:** Lista de testes disponíveis para começar.</li>
+                    <li>**PDFs:** Menu com todos os materiais de estudo em PDF disponíveis.</li>
+                    <li>**Resultados:** Seu histórico de desempenho nos simulados.</li>
+                    <li>**Admin:** Para gerenciar simulados e materiais (acesso interno, protegido por senha).</li>
+                </ul>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="ativarTab('simulados')"><i class="fas fa-play"></i> Iniciar um Simulado</button>
+                    <div class="dropdown" style="display: inline-block;">
+                        <button class="btn btn-secondary dropbtn" type="button"><i class="fas fa-file-pdf"></i> Acessar PDF <i class="fas fa-caret-down"></i></button>
+                        <div class="dropdown-content" id="home-pdf-dropdown-content">
+                             </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulados-section" class="hidden tab-content">
+            <div class="card">
+                <h2 class="card-title">Simulados Disponíveis</h2>
+                <div id="simulado-list">
+                    </div>
+            </div>
+        </section>
+
+        <section id="simulado-section" class="hidden tab-content"> 
+            <div class="card">
+                <div class="card-header"> 
+                    <h2 class="card-title" id="simulado-title">Simulado em Andamento</h2> 
+                    <div> 
+                        <button class="btn btn-secondary" onclick="ativarTab('simulados'); estado.simuladoAtual = null;"> 
+                            <i class="fas fa-arrow-left"></i> Voltar à Lista 
+                        </button> 
+                        <button class="btn btn-primary" onclick="finalizarSimulado()"> 
+                            <i class="fas fa-flag-checkered"></i> Finalizar Simulado 
+                        </button> 
+                    </div> 
+                </div> 
+
+                <div class="simulado-layout"> 
+                    <div class="questoes-main" id="questoes-container"> 
+                        <div id="questoes-list">
+                            </div>
+                    </div> 
+
+                    <div class="mapa-lateral"> 
+                        <div class="mapa-header">Progresso do Simulado</div>
+                        <ul class="gabarito-resumo-list" id="gabarito-resumo-list">
+                            </ul>
+                    </div>
+                </div>
+            </div> 
+        </section>
+
+        <section id="resultados-section" class="hidden tab-content">
+            <div class="card">
+                <h2 class="card-title">Histórico de Resultados</h2>
+                <div id="resultados-container">
+                    </div>
+            </div>
+        </section>
+
+        <section id="admin-login-section" class="hidden tab-content">
+            <div class="card" style="max-width: 400px; margin: 40px auto; text-align: center;">
+                <h2 class="card-title" style="color: var(--danger);">Acesso Restrito</h2>
+                <p>Insira a senha de administrador para continuar:</p>
+                <form id="admin-login-form" class="admin-form">
+                    <label for="admin-password">Senha:</label>
+                    <input type="password" id="admin-password" required>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+            </div>
+        </section>
+        
+        <section id="admin-section" class="hidden tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Área Administrativa</h2>
+                </div>
+                
+                <h3>1. Criar Novo Simulado Vazio</h3>
+                <p>Cria apenas o título e descrição. As questões devem ser importadas depois.</p>
+                <form id="create-simulado-form" class="admin-form">
+                    <label for="new-simulado-title">Título:</label>
+                    <input type="text" id="new-simulado-title" required>
+                    
+                    <label for="new-simulado-desc">Descrição:</label>
+                    <textarea id="new-simulado-desc" required></textarea>
+                    
+                    <button type="submit" class="btn btn-secondary"><i class="fas fa-plus-circle"></i> Criar Vazio</button>
+                </form>
+
+                <h3 style="margin-top: 30px;">2. Criar Simulado Completo (JSON)</h3>
+                <p>Use este formato para criar um simulado com questões de uma só vez. O JSON deve conter `titulo`, `descricao` e o array de `questoes`.</p>
+                
+                <h4>A) Colar JSON (Texto)</h4>
+                <form id="create-json-text-form" class="admin-form">
+                    <label for="json-simulado-text">Conteúdo JSON Completo:</label>
+                    <textarea id="json-simulado-text" rows="8" placeholder='Cole aqui o JSON completo: {"titulo": "...", "descricao": "...", "questoes": [...]}' required></textarea>
+                    
+                    <button type="button" onclick="criarSimuladoJSONText()" class="btn btn-primary"><i class="fas fa-file-code"></i> Criar via JSON Texto</button>
+                </form>
+
+                <div style="margin-top: 20px;"></div>
+                
+                <h4>B) Importar via JSON (Arquivo)</h4>
+                <form id="create-json-file-form" class="admin-form">
+                    <label for="json-file-input">Arquivo JSON de Simulado Completo:</label>
+                    <input type="file" id="json-file-input" accept=".json" required>
+                    
+                    <button type="button" onclick="criarSimuladoJSONFile()" class="btn btn-primary"><i class="fas fa-upload"></i> Criar via JSON Arquivo</button>
+                </form>
+
+                <h3 style="margin-top: 30px;">3. Gerenciar e Excluir Simulados</h3>
+                <div id="admin-simulado-list">
+                    </div>
+                
+                <h3 style="margin-top: 30px;">4. Gerenciar PDFs de Estudo</h3>
+                <p>Adicione, visualize e remova seus materiais de estudo em PDF.</p>
+                <form id="pdf-form" class="admin-form">
+                    <label for="pdf-name-input">Nome (Ex: 'Direito Penal 2024'):</label>
+                    <input type="text" id="pdf-name-input" required>
+                    
+                    <label for="pdf-link-input">Link/Nome do Arquivo (Ex: 'DireitoPenal.pdf'):</label>
+                    <input type="text" id="pdf-link-input" required>
+                    
+                    <button type="button" onclick="adicionarPDF()" class="btn btn-secondary"><i class="fas fa-plus-circle"></i> Adicionar PDF</button>
+                </form>
+                
+                <h4 style="margin-top: 20px;">Lista de PDFs Ativos:</h4>
+                <div id="admin-pdf-list">
+                    </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ====================================================================
+        // CONFIGURAÇÕES E DADOS 
+        // ====================================================================
+        const ADMIN_PASSWORD = '123'; 
+        const STORAGE_KEY_SIMULADOS = 'PREPARATÓRIO CONCURSOS-simulados';
+        const STORAGE_KEY_RESULTADOS = 'PREPARATÓRIO CONCURSOS-resultados';
+        const STORAGE_KEY_PDFS = 'PREPARATÓRIO CONCURSOS-pdfs';
+        
+        // Dados de PDF 
+        let pdfs = [
+            { nome: "Simulado Amostra PPES (Com Gabarito)", link: "COM GAB - SIMULADO PARCIAL - IASES (1).pdf" },
+            { nome: "Questões Sem Gabarito", link: "Questões sem gab.(1).pdf" }
+        ]; 
+
+        var simulados =  [ 
+            { 
+                id: 999, 
+                titulo: "SIMULADO DE TESTE - 2 QUESTÕES", 
+                descricao: "Este é um simulado de teste rápido para verificar as funcionalidades.", 
+                dataCriacao: "2025-10-20", 
+                questoes: [ 
+                    { 
+                        id: 1, 
+                        enunciado: "TESTE 1: Qual é a cor do céu em um dia claro?", 
+                        alternativas: ["A) Amarelo", "B) Azul", "C) Verde"], 
+                        respostaCorreta: 1 
+                    }, 
+                    { 
+                        id: 2, 
+                        enunciado: "TESTE 2: Quantos dias tem uma semana?", 
+                        alternativas: ["A) Cinco", "B) Seis", "C) Sete"], 
+                        respostaCorreta: 2 
+                    } 
+                ] 
+            },
+            {
+                id: 1000,
+                titulo: "Simulado Polícia Penal ES (14 Q)",
+                descricao: "Simulado Amostra - Língua Portuguesa e Raciocínio Lógico-Matemático.",
+                dataCriacao: "2025-10-20",
+                questoes: [
+                    {
+                        id: 1001,
+                        enunciado: "Em: \"Se você apenas exportar commodities para a China, nunca conseguirá esse efeito positivo do emprego industrial na sociedade, dado que você não precisará de tanta mão de obra remunerada e de alta produtividade\", conclui. Pode ser substituída, sem alteração de sentido, a expressão destacada no texto por:",
+                        alternativas: ["A) Ainda que.", "B) Desde que.", "C) Porquanto.", "D) Apesar de que"],
+                        respostaCorreta: 2 
+                    },
+                    {
+                        id: 1002,
+                        enunciado: "Em: \"...o agrião se destaca pela sua riqueza nutritiva. O vegetal de folhas escuras...\" O recurso utilizado no trecho acima é identificado como:",
+                        alternativas: ["A) Zeugma.", "B) Hipálage.", "C) Anáfora.", "D) Conotação."],
+                        respostaCorreta: 2 
+                    },
+                    {
+                        id: 1003,
+                        enunciado: "Texto: Quem eram os gladiadores da Roma Antiga? O termo gladiador deriva da palavra em latim \"gladiatores\", em referência à sua principal arma, o gládio, que é uma espécie de espada curta. O gladiador era um guerreiro da arena (que lutava às vezes até a morte) contra animais ferozes e outros gladiadores para o entretenimento da antiga sociedade romana, como define o site oficial do Coliseu de Roma um dos principais \"palcos\" onde ocorreram as lutas na Antiguidade. Na maioria das vezes, os gladiadores vinham de um passado de escravidão, sendo ex-escravos, mas podíam ser também criminosos condenados. Outros eram prisioneiros de guerra forçados a lutar nas arenas. Havia ainda os casos de aristocratas falidos que... (continua na Q4). Qual é o tema central abordado no primeiro parágrafo do texto?",
+                        alternativas: ["A) A origem e o significado do termo gladiador.", "B) A definição do gladiador e o palco das lutas na Roma Antiga.", "C) Os tipos de armas usadas pelos gladiadores romanos.", "D) A vida dos criminosos e prisioneiros na Roma Antiga."],
+                        respostaCorreta: 2 
+                    },
+                    {
+                        id: 1004,
+                        enunciado: "Ainda sobre o Texto da Q3. O segundo parágrafo do texto descreve que a origem social dos gladiadores era composta por:",
+                        alternativas: ["A) Apenas aristocratas falidos.", "B) Ex-escravos, criminosos condenados e prisioneiros de guerra.", "C) Somente prisioneiros de guerra forçados a lutar.", "D) Guerreiros da arena que lutavam voluntariamente."],
+                        respostaCorreta: 1 
+                    },
+                    {
+                        id: 1005,
+                        enunciado: "Assinale a alternativa que apresenta a sequência correta de V (verdadeiro) ou F (falso) para as proposições sobre concordância nominal:",
+                        alternativas: ["A) F - V - V", "B) V - F - V", "C) F - F - V", "D) V - V - F"],
+                        respostaCorreta: 0 
+                    },
+                    {
+                        id: 1006,
+                        enunciado: "Em \"A maior conquista, mais importante da história do país, a Constituição Cidadã, que garante os direitos humanos, incluindo a educação para todos.\" O termo \"a Constituição Cidadã\" exerce a função sintática de:",
+                        alternativas: ["A) Sujeito simples.", "B) Aposto explicativo.", "C) Complemento nominal.", "D) Objeto direto."],
+                        respostaCorreta: 1 
+                    },
+                    {
+                        id: 1007,
+                        enunciado: "A coesão textual é um elemento fundamental para a boa compreensão de um texto. O elemento coesivo que estabelece uma relação de **consequência** entre as orações é:",
+                        alternativas: ["A) Visto que.", "B) Além de.", "C) Portanto.", "D) Assim como."],
+                        respostaCorreta: 2 
+                    },
+                    {
+                        id: 1008,
+                        enunciado: "No trecho: \"É necessário também colocar em prática palestras educacionais no meio penitenciário, inserir materiais de alfabetização gratuitas e professores qualificados pedagogicamente para a alfabetização nesses locais.\". Qual é a forma correta do termo destacado?",
+                        alternativas: ["A) gratuito (concordando com 'material')", "B) gratuitas (concordando com 'materiais')", "C) gratuitos (concordando com 'materiais')", "D) gratuita (concordando com 'alfabetização')"],
+                        respostaCorreta: 2 
+                    },
+                    {
+                        id: 1009,
+                        enunciado: "RACIOCÍNIO LÓGICO-MATEMÁTICO: Um técnico necessita de 1,5 kg de fio para consertar 4 máquinas de um determinado modelo. Quantos quilos de fio ele precisará para consertar 10 máquinas do mesmo modelo?",
+                        alternativas: ["A) 3,75 kg", "B) 9,0 kg", "C) 4,5 kg", "D) 5,0 kg"],
+                        respostaCorreta: 0 
+                    },
+                    {
+                        id: 1010,
+                        enunciado: "Em uma turma de 30 alunos, 20 foram aprovados em Matemática e 15 foram aprovados em Português. Sabendo que 5 alunos não foram aprovados em nenhuma das duas matérias, quantos alunos foram aprovados em ambas?",
+                        alternativas: ["A) 10", "B) 5", "C) 15", "D) 20"],
+                        respostaCorreta: 0 
+                    },
+                    {
+                        id: 1011,
+                        enunciado: "Um policial está treinando para uma prova de corrida. Ele consegue correr 1,5 km em 10 minutos. Mantendo o mesmo ritmo, quantos quilômetros ele conseguirá correr em 1 hora?",
+                        alternativas: ["A) 7,5 km", "B) 9,0 km", "C) 10,0 km", "D) 12,5 km"],
+                        respostaCorreta: 1 
+                    },
+                    {
+                        id: 1012,
+                        enunciado: "Se a negação da proposição “Todo policial penal é ético” é verdadeira, então qual das seguintes proposições deve ser falsa?",
+                        alternativas: ["A) Nenhum policial penal é ético.", "B) Pelo menos um policial penal não é ético.", "C) Existe policial penal que não é ético.", "D) Algum policial penal é ético."],
+                        respostaCorreta: 3 
+                    },
+                    {
+                        id: 1013,
+                        enunciado: "DIREITOS HUMANOS: De acordo com o Sistema Interamericano de Direitos Humanos, assinale a alternativa correta:",
+                        alternativas: ["A) A Comissão Interamericana de Direitos Humanos, em seu poder de supervisão, possui função consultiva, mas não pode receber denúncias de violações de direitos humanos.", "B) A Corte Interamericana de Direitos Humanos, no exercício de seu poder de resolução de casos contenciosos, atende petições formuladas pelos Estados Partes, por indivíduos ou organizações.", "C) O mecanismo de supervisão de sentenças condenatórias é da competência da Comissão Interamericana de Direitos Humanos.", "D) A Comissão Interamericana tem a função principal de interpretar a Convenção Americana, mas não ampara a realização de visitas in loco e a preparação de relatórios sobre a situação dos direitos humanos nos Estados membros."],
+                        respostaCorreta: 1 
+                    },
+                    {
+                        id: 1014,
+                        enunciado: "REGIME JURÍDICO DOS SERVIDORES (LC 1.061/2023): Sobre a Responsabilidade do Servidor Público, assinale a correta:",
+                        alternativas: ["A) A responsabilidade administrativa resulta apenas de omissão, ocorrida no desempenho do cargo ou função.", "B) As cominações civis, penais e administrativas não poderão cumular-se, sendo independentes entre si, bem assim as instâncias.", "C) A responsabilidade penal abrange os crimes e contravenções imputados ao servidor público, nessa qualidade.", "D) O servidor responderá civil, penal e administrativamente pelo exercício irregular de suas atribuições."],
+                        respostaCorreta: 2 
+                    }
+                ]
+            },{
+  "titulo": "Simulado Amostra PPES 2025 - Policial Penal",
+  "descricao": "Simulado para o cargo de Policial Penal da Polícia Penal do Espírito Santo contendo 60 questões de múltipla escolha",
+  "questoes": [
+    {
+      "enunciado": "A idade cronológica de uma pessoa nem sempre coincide com a sua idade biológica. Sintaticamente, é correto afirmar que, nesta frase:",
+      "alternativas": [
+        "'biológica' é o termo que complementa o objeto direto, considerado adjunto adnominal.",
+        "'a idade cronológica de uma pessoa' refere-se ao sujeito simples.",
+        "'coincide' comporta-se como um verbo intransitivo, não apresentando complementos.",
+        "o núcleo do sujeito é o termo 'pessoa', pois trata-se do vocábulo mais importante.",
+        "o predicado verbo-nominal é composto pela expressão 'coincide com a sua idade biológica'."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Descobrimos 'que um grupo de diversas proteínas liberadas pelas células zumbis funciona como biomarcadores da senescência' e prevê resultados relacionados à saúde em adultos mais velhos. A expressão destacada trata-se de uma oração:",
+      "alternativas": [
+        "Subordinada substantiva.",
+        "Oração principal.",
+        "Adjetiva restritiva.",
+        "Coordenada assindética.",
+        "Coordenada sindética."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Com a idade, elas passam por um processo de senescência, um estado em que não 'crescem' e não se dividem, no entanto resistem em morrer e 'liberam' uma combinação prejudicial de sinais biológicos nocivos. Os verbos destacados, nesta frase, comportam-se, respectivamente, como verbos:",
+      "alternativas": [
+        "Transitivo direto – bitransitivo.",
+        "Intransitivo – transitivo direto.",
+        "Transitivo direto – transitivo direto.",
+        "Bitransitivo - intransitivo.",
+        "Transitivo indireto – bitransitivo."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Existe erro de concordância verbal no seguinte período:",
+      "alternativas": [
+        "Havia muitas mulheres na festa.",
+        "Existia provas contra eles.",
+        "Trata-se de doenças contagiosas.",
+        "Vendem-se apartamentos na cidade.",
+        "Procura-se cão desaparecido."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Assinale a única alternativa que está de acordo com as normas de regência da língua culta:",
+      "alternativas": [
+        "Notifiquei-lhe de que não pretendia substituí-lo na liderança do batalhão, porque apesar de ter sempre servido a polícia, jamais aspirei a tal posição.",
+        "Notifiquei-lhe de que não pretendia substituir-lhe na liderança do batalhão, porque apesar de ter sempre servido à polícia, jamais aspirei a tal posição.",
+        "Notifiquei-o de que não pretendia substituir-lhe na liderança do batalhão, porque apesar de ter sempre servido à polícia, jamais aspirei tal posição.",
+        "Notifiquei-o de que não pretendia substituí-lo na liderança do batalhão, porque apesar de ter sempre servido a polícia, jamais aspirei tal posição.",
+        "Notifiquei-o de que não pretendia substituí-lo na liderança do batalhão, porque apesar de ter sempre servido à polícia, jamais aspirei a tal posição."
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "A seguir, leia a frase do filósofo inglês Francis Bacon: 'Viajar, para os jovens, faz parte da educação; para os adultos, faz parte da experiência.' Sobre a sua significação ou estruturação, assinale a afirmativa correta.",
+      "alternativas": [
+        "As palavras 'jovens' e 'adultos' são anônimas, assim como 'educação' e 'experiência'.",
+        "O ponto-e-vírgula empregado na frase pode ser adequadamente substituído pela conjunção 'enquanto'.",
+        "As duas ocorrências da expressão 'faz parte' mostram significados diferentes na frase.",
+        "A expressão 'fazer parte' equivale semanticamente ao verbo 'partilhar'.",
+        "A frase mostra a superioridade dos jovens sobre os adultos, no que se refere à finalidade de viajar."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "A metonímia é uma figura de linguagem utilizada quando uma palavra ou expressão é substituída por outra, devido à existência de uma relação lógica entre elas. Identifique em qual alternativa ocorre a Metonímia, empregando o efeito pela causa:",
+      "alternativas": [
+        "O bonde passa cheio de pernas.",
+        "Os cristais tiniam na bandeja de prata do castelo.",
+        "Com muito suor, o operário construiu a casa.",
+        "Ofereceram-lhe bolo e ele comeu o tabuleiro todo.",
+        "A juventude é corajosa e nem sempre consequente."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "Foi redigida em conformidade com a norma-padrão de ortografia a palavra destacada em:",
+      "alternativas": [
+        "Os senadores apresentaram projetos que prevêem normas rígidas de segurança para casas de shows.",
+        "Existem diversas espécies de atos administrativos, que são agrupados de acordo com suas finalidades.",
+        "A universidade não pára nos meses sem atividades didáticas, pois existem ainda as atividades administrativas.",
+        "A Assembléia Legislativa realizou um evento para escutar familiares das vítimas da catástrofe ambiental.",
+        "O servidor teve a oportunidade de manifestar suas idéias durante a reunião com a chefe de gabinete."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Assinale a alternativa em que a frase está em conformidade com a norma-padrão de emprego de pronomes.",
+      "alternativas": [
+        "A internet pode aproximar pessoas, isto é, reconectar-las.",
+        "Todos podem se expressar na internet, isto é, usá-la para se expressar.",
+        "Cite as vantagens da internet, isto é, elenque-lhes.",
+        "A internet é usada para espalhar mentiras, isto é, para difundi-as.",
+        "Acho que já está bom de desvantagens, isto é, de mencioná-lhes."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "A única frase em que se verifica um par de parônimos é:",
+      "alternativas": [
+        "Eu gosto do gosto dessa fruta exótica.",
+        "Caiu uma manga na manga da minha camisa.",
+        "Devemos prosseguir, ainda que tristes ou felizes.",
+        "O país vive uma intensa onda de imigração e de emigração.",
+        "A mãe do meu amigo vivia de cozer legumes e de coser roupas."
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "Em uma caixa há duas bolas brancas, duas bolas pretas e duas bolas vermelhas, todas do mesmo peso e tamanho. São retiradas, aleatoriamente, duas bolas. A probabilidade de que essas bolas sejam de cores diferentes é de:",
+      "alternativas": ["60%.", "72%.", "75%.", "80%.", "90%."],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "Beatriz tem dois anéis, um de safira e outro de esmeralda, e deseja colocá-los em seus dedos. No entanto, ela decidiu que não usará os polegares e que não colocará os dois anéis no mesmo dedo. Sabendo que cada anel deve ser colocado em um dos oito dedos restantes, a quantidade de formas distintas que Beatriz poderá distribuir os dois anéis é de:",
+      "alternativas": ["28.", "40.", "56.", "64.", "72."],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "O rendimento de determinado tipo de tinta é de 8,5 metros quadrados para cada 1,5 litro de tinta. Qual a quantidade de litros necessários para pintar 102 metros quadrados, mantendo sempre esse rendimento?",
+      "alternativas": ["21", "20", "18", "16", "15"],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "Em uma fábrica, 14 trabalhadores produzem 210 peças em 5 horas. Se o número de trabalhadores for aumentado para 18, e o tempo disponível para a produção for de 3 horas, quantas peças serão produzidas?",
+      "alternativas": ["162 peças", "270 peças", "180 peças", "216 peças", "54 peças"],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Um aquário tem a forma de um paralelepípedo retângulo, com as seguintes dimensões: 1,5 metros de comprimento, 0,8 metros de largura e 0,6 metros de altura. Qual é o volume do aquário em litros?",
+      "alternativas": ["720", "7200", "640", "6400", "64000"],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Fabiano emprestou R$ 1.000,00 ao seu primo, que devolveu o valor após 3 meses, acrescido de juros simples de 1% ao mês. Em seguida, Fabiano aplicou o montante total recebido em uma conta de investimento que rende juros simples de 2% ao mês por um período de 9 meses. Assim, qual foi o montante final acumulado por Fabiano ao término dessa aplicação?",
+      "alternativas": [
+        "R$ 1.185,40.",
+        "R$ 1.230,00.",
+        "R$ 1.278,00.",
+        "R$ 1.260,00.",
+        "R$ 1.215,40"
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "Em um concurso público, o número de vagas para nível superior é cinco vezes maior do número de vagas para nível médio. Se o total de vagas oferecidas é 1500, quantas vagas são para nível médio?",
+      "alternativas": ["1000", "500", "250", "1250", "300"],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "Em um posto de saúde, onde trabalhavam 7 médicos, eram atendidos, em média, 84 pacientes por dia – o que significa que cada médico desse posto de saúde atendia, em média, 12 pacientes por dia. Depois de alguns meses, esse posto de saúde passou a atender, em média, 116 pacientes por dia e, por isso, além dos 7 médicos que ali já trabalhavam, mais alguns médicos foram contratados. Dessa forma, cada médico desse posto de saúde passou a atender, em média, 7,25 pacientes por dia. O número de médicos contratados foi:",
+      "alternativas": ["8.", "9.", "10.", "12.", "15."],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "De acordo com as premissas que caracterizam a rotina de um determinado candidato ao concurso de Policial Penal, tem-se que: (1) Estuda ou trabalha. (2) Dorme cedo e estuda. (3) Bebe café ou não trabalha. (4) Não bebe café. O argumento válido é que o candidato:",
+      "alternativas": [
+        "Trabalha e bebe café.",
+        "Estuda e não dorme cedo.",
+        "Não dorme cedo e trabalha.",
+        "Bebe café e não estuda.",
+        "Não trabalha e dorme cedo."
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "Alguns animais são frágeis. Toda criança é frágil. Amanda é criança e Amadeu é frágil. Somente com base nessas proposições, podemos concluir que:",
+      "alternativas": [
+        "Amanda é frágil e Amadeu é criança.",
+        "Amanda é frágil e Amadeu é animal.",
+        "Amanda é também animal e Amadeu é criança.",
+        "Amanda é frágil e Amadeu pode não ser criança e nem animal.",
+        "Amanda não é frágil e Amadeu é criança."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "O sistema operacional Windows 10 possui um recurso que permite que um teclado seja exibido na tela para ser utilizado por meio do mouse. Esse recurso é chamado de Teclado:",
+      "alternativas": ["Digital.", "Eletrônico.", "Online.", "Virtual.", "Simulador."],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "Ao navegar pela internet, deve-se conhecer a URL de um site. Considerando-se que a URL é composta por três partes principais: caminho, protocolo e domínio, a estrutura adotada para a URL é:",
+      "alternativas": [
+        "domínio://protocolo/caminho",
+        "protocolo://domínio/caminho",
+        "domínio://caminho/protocolo",
+        "protocolo://caminho/domínio",
+        "caminho://protocolo/domínio"
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Ao navegar na internet, qual a opção recomendada para que, ao clicar num link, a página original permaneça aberta quando a nova página for exibida?",
+      "alternativas": [
+        "Abrir",
+        "Abrir em uma nova janela.",
+        "Salvar destino como.",
+        "Deletar",
+        "Exibir lado a lado."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Considerando o aplicativo Microsoft Word, um usuário digitou a seguinte palavra: Concurso. Qual dos recursos de efeitos listados está empregado nessa palavra?",
+      "alternativas": ["Selecionado.", "Riscado.", "Grifado.", "Tachado.", "Subscribe."],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "João trabalha como Policial Penal e precisa calcular o total de novos presos do mês para um relatório. Ele registrou o número de novos presos na coluna A de uma planilha do Microsoft Excel (versão em português), da célula A2 até A31, representando os dias do mês. Para encontrar o valor total dos novos presos qual fórmula João deve usar?",
+      "alternativas": [
+        "=A2+A31",
+        "=SOMA(A2:A31)",
+        "=MULT(A2:A31)",
+        "=A2^A31",
+        "=TOTAL(A2:A31)"
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Em 2025, o fato de o Brasil assumir a presidência rotativa do bloco dos Brics abriu uma série de oportunidades para o país, entre as quais:",
+      "alternativas": [
+        "a prerrogativa de assinar tratados bilaterais entre os Brics e os países do G7, sem necessidade de consenso entre os membros do bloco;",
+        "a possibilidade de implementar o Banco dos Brics e promover a estabilidade econômico-financeira do grupo mediante o monitoramento e a supervisão das economias dos países membros;",
+        "a oportunidade de articular uma posição conjunta dos Brics sobre as ações climáticas, especialmente diante dos preparativos para a COP 30 em Belém do Pará;",
+        "a capacidade de incrementar a cooperação militar com a OTAN, fortalecendo a presença do Sul Global em alianças estratégicas para o enfrentamento de desafios geopolíticos;",
+        "a competência de estabelecer o uso de moedas locais nas transações comerciais entre os países dos Brics, reduzindo o impacto da política monetária dos Estados Unidos e garantindo taxas de câmbio fixas entre os países membros."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "O Vaticano anunciou no dia 8 de maio de 2025 que Robert Francis Prevost, 69 anos, é o novo papa. O pontífice, que adotou o nome de Leão XIV, nasceu em qual país?",
+      "alternativas": ["Peru.", "Estados Unidos.", "México.", "Canadá.", "Argentina."],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "A recente escalada do conflito envolvendo Israel, amplamente noticiada, teve início, principalmente, devido a qual acontecimento?",
+      "alternativas": [
+        "Reconciliação diplomática completa entre Israel e Palestina.",
+        "Retirada total das tropas israelenses da Cisjordânia.",
+        "Transferência da capital de Israel para Tel Aviv.",
+        "Ataque surpresa realizado pelo Hamas contra território israelense.",
+        "Reconhecimento internacional de Jerusalém como capital palestina."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "A culinária do Espírito Santo possui pratos típicos reconhecidos nacionalmente. Qual prato é símbolo da gastronomia capixaba e deve ser preparado em panela de barro?",
+      "alternativas": [
+        "Bobó de camarão.",
+        "Vatapá.",
+        "Moqueca capixaba.",
+        "Feijoada.",
+        "Feijão-tropeiro."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "De acordo com os conhecimentos sobre o estado do Espírito Santo. Qual foi a primeira capital do estado?",
+      "alternativas": ["Vitória.", "Vila Velha.", "Cariacica.", "Serra.", "Linhares."],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Registre V, para verdadeiras, e F, para falsas, a respeito de sigilo e confidencialidade: ( ) O sigilo profissional abrange informações obtidas durante o exercício da função e deve ser mantido mesmo após término do vínculo empregatício. ( ) Documentos classificados como sigilosos requerem tratamento específico quanto ao acesso, tramitação e arquivamento conforme grau de sigilo estabelecido. ( ) A quebra do sigilo das comunicações pode ocorrer por solicitação de familiares dos usuários quando houver interesse legítimo comprovado. Assinale a alternativa que apresenta a sequência correta:",
+      "alternativas": ["V – V – F", "F – V – F", "F – F – V", "V – V – V", "V – F – F"],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Em sua postura profissional, ao agir com honestidade, integridade e respeito, seguindo as normas e os valores da organização, é correto afirmar que o servidor se utiliza precipuamente de:",
+      "alternativas": ["empatia.", "ética.", "comunicação.", "eficácia.", "eficiência."],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "De acordo com a Instrução Normativa 004/2004 (Dispõe sobre o Código de Ética, Conduta e Integridade da Polícia Penal do Estado do Espírito Santo), a informação submetida temporariamente à restrição de acesso público em razão de sua imprescindibilidade para a segurança da sociedade e do Estado é o conceito de:",
+      "alternativas": [
+        "informação de interesse",
+        "informação dativa",
+        "informação privilegiada",
+        "informação conflitante",
+        "informação sigilosa"
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "A compreensão da Administração Pública envolve o conhecimento dos princípios que estabelecem o padrão a ser seguido por todas as organizações administrativas públicas — ou privadas que lidam com o interesse público — para atender aos interesses da sociedade. Com base nessa informação, assinale a alternativa que apresenta os cinco princípios da Administração Pública.",
+      "alternativas": [
+        "Legalidade, Impessoalidade, Fiscalização, Eficiência e Justiça.",
+        "Legalidade, Impessoalidade, Moralidade, Publicidade e Eficiência.",
+        "Legalidade, Publicidade, Regulamentação, Impessoalidade e Fiscalização.",
+        "Transparência, Moralidade, Legalidade, Democracia e Impessoalidade.",
+        "Regulação, Justiça, Eficiência, Moralidade e Equidade."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "A respeito do regime jurídico da improbidade administrativa, considerada a Lei nº 8.429/1992, com redação dada pela Lei nº 14.230/2021, assinale a alternativa correta.",
+      "alternativas": [
+        "A caracterização de ato de improbidade administrativa que atenta contra os princípios da administração pública exige o reconhecimento de dano ao erário.",
+        "As sanções por ato de improbidade administrativa podem ser executadas independentemente do trânsito em julgado da condenação.",
+        "Atualmente, após alteração na Lei nº 8.429/1992, com redação dada pela Lei nº 14.230/2021, a caracterização de ato de improbidade administrativa por ato culposo ocorre nos casos em que é verificado prejuízo ao erário.",
+        "No caso de lesão ao patrimônio público, o dever de reparação previsto na Lei nº 8.429/1992, com redação dada pela Lei nº 14.230/2021, deve levar em consideração ressarcimentos ocorridos nas instâncias relativos ao mesmo fato.",
+        "A aplicação das disposições da Lei nº 8.429/1992 exige a condição de agente público de todos os envolvidos no ato de improbidade."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "De acordo com a Declaração Universal dos Direitos Humanos, todas as pessoas têm direito a um padrão de vida adequado. Com base nessa informação, assinale a alternativa correta.",
+      "alternativas": [
+        "O direito à moradia, à alimentação e à saúde é um dever exclusivo do indivíduo, sem qualquer obrigação do Estado.",
+        "O direito a um padrão de vida adequado inclui segurança social e proteção contra o desemprego.",
+        "A proteção da maternidade e da infância não é considerada um direito humano essencial.",
+        "O Estado não tem responsabilidade na garantia de condições dignas de trabalho.",
+        "O direito ao trabalho só se aplica a cidadãos do país onde residem."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "A Emenda Constitucional no 45/2004 trouxe importante alteração da Constituição Federal de 1988 sobre o tema dos direitos humanos. A partir dessa emenda, a Constituição passou a prever que serão equivalentes às emendas constitucionais, os tratados e convenções internacionais sobre direitos humanos que forem aprovados, em cada Casa do Congresso Nacional:",
+      "alternativas": [
+        "em dois turnos, por um terço dos votos dos respectivos membros.",
+        "em dois turnos, por três quintos dos votos dos respectivos membros.",
+        "em um turno, por um terço dos votos dos respectivos membros.",
+        "em um turno, por três quintos dos votos dos respectivos membros.",
+        "pela maioria simples membros de cada casa legislativa presentes à sessão de votação."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "No que diz respeito às revistas aos reclusos e inspeção de celas previstas nas Regras Mínimas das Nações Unidas para o Tratamento de Reclusos, É CORRETO afirmar que:",
+      "alternativas": [
+        "As revistas aos reclusos e as inspeções podem ser utilizadas para intimidar ou invadir, desnecessariamente, a privacidade do recluso.",
+        "Os reclusos devem ter acesso aos documentos relacionados com os seus processos judiciais e ser autorizados a mantê-los consigo, desde que, a administração prisional tenha acesso a estes.",
+        "Para fins de responsabilização, não é necessário que a administração prisional mantenha registos apropriados das revistas feitas aos reclusos e inspeções, em particular as que envolvem o ato de despir e de inspecionar partes íntimas do corpo e inspeções nas celas.",
+        "As leis e regulamentos sobre as revistas aos reclusos e inspeções de celas devem estar em conformidade com as obrigações do Direito Internacional e devem ter em conta os padrões e as normas internacionais, uma vez considerada a necessidade de garantir a segurança dos estabelecimentos prisionais.",
+        "As revistas íntimas invasivas devem ser conduzidas de forma privada e por pessoal treinado do sexo oposto que o recluso inspecionado."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "Considerando o que prevê a Constituição Federal acerca dos princípios fundamentais, é correto afirmar que um dos fundamentos da República Federativa do Brasil é:",
+      "alternativas": [
+        "a defesa da paz.",
+        "a dignidade da pessoa humana.",
+        "a garantia do desenvolvimento nacional.",
+        "o repúdio ao terrorismo e ao racismo.",
+        "a autodeterminação dos povos."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Com base no artigo 5° da Constituição da República Federativa do Brasil de 1988, julgue os itens seguintes: I. A prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de detenção, nos termos da lei. II. São invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação. III. É plena a liberdade de associação para fins licitos, inclusive a de caráter paramilitar. Está(ão) CORRETO(S):",
+      "alternativas": [
+        "I, II e III.",
+        "I, apenas.",
+        "II, apenas.",
+        "I e II, apenas.",
+        "III, apenas."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "Acerca das Entidades Componentes da Federação Brasileira é correto afirmar, exceto:",
+      "alternativas": [
+        "Estados são divisões territoriais que possuem autonomia político-administrativa, legislativa e financeira.",
+        "Compete à União, declarar a guerra e celebrar a paz.",
+        "É permitido à União, aos Estados, ao Distrito Federal e aos Municípios recusar fé aos documentos públicos.",
+        "Compete aos Municípios legislar sobre assuntos de interesse local.",
+        "O Distrito Federal, vedada sua divisão em Municípios, reger-se-á por lei orgânica."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "Com base nas funções essenciais à justiça, é correto afirmar que:",
+      "alternativas": [
+        "a Defensoria Pública é função essencial à justiça, responsável pela defesa da ordem jurídica, do regime democrático e dos interesses sociais e individuais indisponíveis.",
+        "a obrigatoriedade de instituição, pelos Estados, de órgão de advocacia pública para exercício exclusivo da atividade de consultoria jurídica não é extensível aos municípios.",
+        "a autonomia funcional e administrativa e a iniciativa da proposta orçamentária são prerrogativas da Advocacia Pública e do Ministério Público que não se estendem à Defensoria Pública.",
+        "os Procuradores-Gerais de Justiça dos Estados e do Distrito Federal possuem mandato fixo, podendo ser destituídos apenas pelo Chefe do Executivo.",
+        "a Defensoria Pública e a Advocacia Pública podem exercer a advocacia fora de suas atribuições institucionais."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Consoante o disposto no §1º do artigo 144 da CRFB/88, o órgão que se destina a exercer, com exclusividade, as funções de polícia judiciária da União é a:",
+      "alternativas": [
+        "polícia federal",
+        "polícia civil",
+        "polícia militar",
+        "polícia rodoviária federal",
+        "polícia ferroviária federal"
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Durante uma inspeção interna, o chefe de departamento identificou que um servidor estava descumprindo normas internas repetidamente. Para garantir o bom funcionamento da equipe e manter a ordem, o chefe aplicou uma advertência formal ao servidor, conforme previsto nas regras da instituição. Considerando os poderes da Administração Pública, qual poder foi exercido pelo chefe do departamento nessa situação?",
+      "alternativas": [
+        "Poder vinculado.",
+        "Poder regulamentar.",
+        "Poder disciplinar.",
+        "Poder hierárquico.",
+        "Poder especial."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "São considerados atributos dos atos administrativos:",
+      "alternativas": [
+        "A presunção de legitimidade e veracidade, a imperatividade, a autoexecutoriedade e a tipicidade.",
+        "A presunção de legalidade, a discricionariedade, a motivação e a publicidade.",
+        "A tipicidade, a finalidade, a competência e o objeto.",
+        "A imperatividade, a publicidade, a motivação e a eficiência.",
+        "A legalidade, a moralidade, a publicidade e a eficiência."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Acerca dos atos administrativos, assinale a alternativa que apresenta corretamente o conceito de convalidação.",
+      "alternativas": [
+        "Desfazimento de ato administrativo por motivo de ilegalidade, com efeitos retroativos.",
+        "Ato discricionário por meio do qual a Administração revoga um ato válido por conveniência ou oportunidade.",
+        "Ato administrativo que extingue os efeitos de um ato em razão do descumprimento de deveres legais pelo administrado.",
+        "Anulação de ato administrativo por vício insanável de legalidade.",
+        "Ato por meio do qual a Administração corrige um vício existente em ato ilegal, sanável e sem prejuízo ao interesse público."
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "No processo administrativo, os princípios e garantias fundamentais assegurados aos administrados incluem:",
+      "alternativas": [
+        "Contraditório, ampla defesa, devido processo legal, razoabilidade, proporcionalidade e motivação dos atos decisórios.",
+        "Instauração mediante provocação, instrução contraditória, decisão fundamentada, comunicação aos interessados e possibilidade recursal.",
+        "Igualdade entre as partes, oportunidade de manifestação, avaliação das provas, transparência procedimental e controle das decisões.",
+        "Direito de petição, contraditório processual, defesa técnica especializada, fundamentação das decisões e recurso hierárquico.",
+        "Participação dos interessados, apresentação de alegações, produção de provas, impugnação de decisões e revisão administrativa."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "A responsabilidade civil do Estado é a obrigação da Administração Pública de reparar danos causados a terceiros, podendo essa responsabilidade pode ser objetiva ou subjetiva. A partir dessa informação, assinale a opção correta, no que concerne à responsabilidade civil do Estado.",
+      "alternativas": [
+        "A responsabilidade civil do Estado por atos comissivos depende da demonstração de dolo ou culpa do agente público para que o particular possa ser indenizado.",
+        "Na hipótese de responsabilidade civil do Estado por omissão, aplica-se a teoria objetiva, bastando ao particular demonstrar o dano e a relação causal com a omissão.",
+        "A responsabilidade objetiva do Estado somente se configura diante da prática de atos ilícitos pelos agentes públicos no exercício de suas funções.",
+        "A ocorrência de culpa exclusiva da vítima exclui a responsabilidade civil do Estado, por romper o nexo de causalidade entre a atuação estatal e o dano sofrido.",
+        "O Estado não pode ser responsabilizado por danos causados por concessionárias de serviços públicos, em razão da autonomia jurídica dessas entidades."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "Em 2024, André cometeu crime cuja pena máxima era de quatro anos de reclusão. Em 2025, nova lei entrou em vigor, aumentando a pena para oito anos. André ainda não havia sido julgado quando a nova norma passou a valer. Nessa situação, assinale a alternativa correta.",
+      "alternativas": [
+        "A nova lei penal será aplicada a André somente se ainda não houver sentença.",
+        "A lei nova é mais gravosa, mas retroage por se tratar de crime doloso.",
+        "A nova lei aplica-se imediatamente a todos os casos, independentemente do tempo do fato.",
+        "A nova lei penal não retroage, por ser mais severa, salvo se expressamente previsto em lei.",
+        "A lei penal mais gravosa não retroage, devendo aplicar-se a norma vigente à época dos fatos."
+      ],
+      "respostaCorreta": 4
+    },
+    {
+      "enunciado": "De acordo com o Código Penal brasileiro, a extraterritorialidade da lei penal aplica-se:",
+      "alternativas": [
+        "Exclusivamente a crimes cometidos no Brasil por estrangeiros.",
+        "Apenas aos crimes que afetam bens jurídicos internacionais, como terrorismo.",
+        "À prática de crimes contra a administração pública por funcionário público brasileiro, ainda que cometidos no exterior.",
+        "Apenas mediante solicitação expressa do governo estrangeiro, independentemente de tratado internacional.",
+        "Exclusivamente a crimes cometidos em alto-mar, em navios estrangeiros."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "Em relação ao concurso de pessoas, assinale a alternativa correta.",
+      "alternativas": [
+        "A teoria do concurso de pessoas só interessa aos delitos unissubjetivos, considerando que, nos delitos plurissubjetivos, a reunião de pessoas é da essência do próprio tipo penal.",
+        "Resta configurado o concurso de pessoas quando dois ou mais indivíduos concorrem para a prática de um mesmo crime, sendo irrelevante que tenham identidade de propósitos.",
+        "As circunstâncias objetivas se comunicam mesmo que o coautor não tenha conhecimento delas.",
+        "O Código Penal não distingue a autoria da participação, e a doutrina reconhece unicamente a participação em sua forma material.",
+        "As circunstâncias e condições pessoais sempre se comunicam, considerando que os agentes atuam objetivando a prática de um mesmo evento criminoso."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Conforme o art. 312 do Código Penal, o crime de peculato ocorre quando o agente público:",
+      "alternativas": [
+        "Se apropria de qualquer bem público ou privado em virtude de interesse pessoal.",
+        "Se apropria de valor ou bem móvel, público ou particular, de que tem a posse em razão do cargo.",
+        "Subtrai bem móvel alheio com o uso de arma, atuando como agente público.",
+        "Solicita vantagem indevida, prometendo influenciar ato administrativo.",
+        "Desvia recurso orçamentário de uma secretaria pública para outra, sem dolo."
+      ],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "Conforme o Código de Processo Penal, estando o indiciado preso, o prazo para encerramento do inquérito policial é de:",
+      "alternativas": ["5 dias.", "10 dias.", "15 dias.", "30 dias.", "60 dias."],
+      "respostaCorreta": 1
+    },
+    {
+      "enunciado": "No tocante às espécies de prisão, assinale a alternativa correta:",
+      "alternativas": [
+        "A prisão temporária pode ser decretada por autoridade policial, desde que haja risco à instrução criminal.",
+        "A prisão em flagrante sempre exige a prévia autorização judicial, em razão da privação da liberdade.",
+        "A prisão preventiva pode ser decretada de ofício pelo juiz, mesmo após o advento da Lei 13.964/2019.",
+        "O juiz pode substituir a prisão preventiva pela domiciliar quando o agente for imprescindível aos cuidados especiais de pessoa menor de 6 anos de idade ou com deficiência.",
+        "A prisão civil por dívida é cabível no caso de obrigação alimentar e também de descumprimento contratual reiterado."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "Sobre a ação penal, assinale a alternativa correta:",
+      "alternativas": [
+        "A ação penal pública é indisponível, não podendo ser arquivada pelo Ministério Público sem controle judicial.",
+        "A queixa-crime é sempre apresentada pelo Ministério Público.",
+        "A análise do pedido de trancamento da ação penal é prejudicada pela aceitação de proposta de suspensão condicional do processo.",
+        "O Ministério Público pode oferecer denúncia mesmo sem justa causa, desde que haja fortes indícios de autoria.",
+        "A ação penal privada pode ser ajuizada independentemente de manifestação da vítima."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "Fábio, reincidente em crime doloso, cumpre pena definitiva, em regime fechado, pela prática do crime de roubo circunstanciado pelo emprego de arma de fogo. No curso da execução penal, sobrevém o falecimento do cônjuge do apenado. Nesse cenário, considerando as disposições da Lei de Execução Penal, é correto afirmar que Fábio:",
+      "alternativas": [
+        "tem direito à permissão de saída, que será concedida pelo diretor do estabelecimento onde se encontra preso.",
+        "tem direito à saída temporária, que será concedida pelo diretor do estabelecimento onde se encontra preso.",
+        "tem direito à saída temporária, mediante escolta, perdurando pelo tempo necessário à finalidade da saída.",
+        "não tem direito à permissão de saída, por estar cumprindo pena em regime fechado.",
+        "não tem direito à permissão de saída, por ser reincidente em crime doloso."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "De acordo com a Lei nº 11.343/2006, o tráfico ilícito de drogas é considerado um crime grave. Qual das alternativas abaixo descreve corretamente uma circunstância que pode aumentar a pena para o traficante?",
+      "alternativas": [
+        "O tráfico de drogas é punido com pena fixa de 10 anos, sem possibilidade de aumento.",
+        "A pena pode ser aumentada se o tráfico ocorrer em locais de culto religioso.",
+        "A pena pode ser aumentada se o tráfico ocorrer em escolas ou envolver menores de idade.",
+        "A pena pode ser aumentada caso o traficante seja usuário de drogas.",
+        "A pena pode ser aumentada apenas se o traficante for funcionário público."
+      ],
+      "respostaCorreta": 2
+    },
+    {
+      "enunciado": "A Lei nº 13.869/2019 dispõe sobre os crimes de abuso de autoridade, apresentando os sujeitos do crime, procedimentos para apuração, efeitos da condenação, entre outros capítulos. Com base nessa legislação, assinale a alternativa CORRETA.",
+      "alternativas": [
+        "Nos crimes de abuso de autoridade, não existe possibilidade de substituição de pena privativa de liberdade por pena restritiva de direitos.",
+        "Os crimes de abuso de autoridade são sempre de ação penal pública condicionada à representação da pessoa prejudicada ou vítima do abuso.",
+        "A responsabilidade civil e administrativa deve ser apurada tendo como base a apuração criminal em todos os aspectos.",
+        "É efeito da condenação, dentre outros, a inabilitação para o exercício de cargo, mandato ou função pública, pelo prazo de 1 (um) a 5 (cinco) anos.",
+        "As divergências na interpretação da lei ou na avaliação dos fatos e provas também configuram crime de abuso de autoridade."
+      ],
+      "respostaCorreta": 3
+    },
+    {
+      "enunciado": "João, servidor público civil, buscou informações, junto à legislação de regência, sobre as hipóteses em que poderá se ausentar do serviço, sem qualquer prejuízo para suas atividades funcionais. Nesse cenário, considerando as disposições do Regime Jurídico Único dos servidores públicos civis da administração direta, das autarquias e das fundações públicas do Estado do Espírito Santo, é correto afirmar que poderá o servidor público ausentar-se do serviço:",
+      "alternativas": [
+        "pelos dias necessários à realização de provas ou exames finais, quando estudante matriculado em estabelecimento de ensino oficial ou reconhecido;",
+        "por oito dias consecutivos, por motivo de falecimento do cônjuge, companheiro, pais, filhos, irmãos;",
+        "por até dois dias, para apresentação obrigatória em órgão militar;",
+        "por até cinco dias consecutivos, por motivo de casamento;",
+        "por um dia, a cada seis meses, para doação de sangue."
+      ],
+      "respostaCorreta": 0
+    },
+    {
+      "enunciado": "De acordo com a Lei Estadual nº 1.059/2023, o lapso de tempo estabelecido como o mínimo necessário para que o servidor se habilite à progressão ou à promoção é denominado(a):",
+      "alternativas": ["carreira", "classe", "referência", "progresso", "interstício"],
+      "respostaCorreta": 4
+    }
+  ]
+}
+        ]; 
+
+        let estado = {
+            simuladoAtual: null,
+            respostas: {},
+        };
+        
+        // ====================================================================
+        // FUNÇÕES GERAIS E INICIALIZAÇÃO 
+        // ====================================================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarDadosIniciais();
+            
+            window.tabs = document.querySelectorAll('nav a'); 
+            window.tabContents = document.querySelectorAll('section[id$="-section"], #admin-login-section');
+            window.questoesList = document.getElementById('questoes-list');
+            window.simuladosContainer = document.getElementById('simulado-list');
+            window.simuladoAdminList = document.getElementById('admin-simulado-list');
+            // NOVO ID DO GABARITO LATERAL
+            window.gabaritoResumoList = document.getElementById('gabarito-resumo-list'); 
+            window.createSimuladoForm = document.getElementById('create-simulado-form');
+            window.adminLoginForm = document.getElementById('admin-login-form');
+            window.pdfDropdownContent = document.getElementById('pdf-dropdown-content');
+            window.homePdfDropdownContent = document.getElementById('home-pdf-dropdown-content');
+            window.adminPdfList = document.getElementById('admin-pdf-list');
+
+            tabs.forEach(tab => {
+                const tabId = tab.getAttribute('data-tab');
+                if (tabId) {
+                    tab.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        ativarTab(tabId);
+                    });
+                }
+            });
+            
+            if (createSimuladoForm) {
+                createSimuladoForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    criarSimuladoVazio();
+                });
+            }
+
+            if (adminLoginForm) {
+                adminLoginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    fazerLoginAdmin();
+                });
+            }
+
+            if (simuladosContainer) {
+                simuladosContainer.addEventListener('click', (e) => {
+                    const target = e.target.closest('.simulado-card');
+                    if (target) {
+                        const id = parseInt(target.getAttribute('data-id'));
+                        iniciarSimulado(id);
+                    }
+                });
+            }
+
+            renderizarDropdownPDFs();
+            atualizarContadorSimulados();
+            ativarTab('home'); 
+        });
+        
+        function carregarDadosIniciais() {
+            // Lógica para carregar e mesclar simulados salvos com os pré-definidos
+            const simuladosInStorage = localStorage.getItem(STORAGE_KEY_SIMULADOS);
+            if (simuladosInStorage) {
+                try {
+                    const parsed = JSON.parse(simuladosInStorage);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                         const initialSimuladosMap = new Map(simulados.map(s => [s.id, s]));
+                         parsed.forEach(s => initialSimuladosMap.set(s.id, s));
+                         simulados = Array.from(initialSimuladosMap.values());
+                    } else {
+                         localStorage.setItem(STORAGE_KEY_SIMULADOS, JSON.stringify(simulados));
+                    }
+                } catch (e) {
+                    localStorage.setItem(STORAGE_KEY_SIMULADOS, JSON.stringify(simulados));
+                }
+            } else {
+                localStorage.setItem(STORAGE_KEY_SIMULADOS, JSON.stringify(simulados));
+            }
+            
+            // Lógica para carregar PDFs
+            const pdfsInStorage = localStorage.getItem(STORAGE_KEY_PDFS);
+            if (pdfsInStorage) {
+                try {
+                    const parsed = JSON.parse(pdfsInStorage);
+                    if (Array.isArray(parsed)) {
+                        pdfs = parsed;
+                    }
+                } catch (e) {
+                    console.error("Erro ao carregar PDFs do localStorage.", e);
+                }
+            } else {
+                localStorage.setItem(STORAGE_KEY_PDFS, JSON.stringify(pdfs));
+            }
+        }
+
+        function salvarDados() {
+            localStorage.setItem(STORAGE_KEY_SIMULADOS, JSON.stringify(simulados));
+            localStorage.setItem(STORAGE_KEY_PDFS, JSON.stringify(pdfs)); 
+        }
+
+        function renderizarDropdownPDFs() {
+            if (!pdfDropdownContent || !homePdfDropdownContent) return;
+
+            pdfDropdownContent.innerHTML = '';
+            homePdfDropdownContent.innerHTML = '';
+
+            if (pdfs.length === 0) {
+                 const noPdfLink = `<a href="#" onclick="alert('Nenhum PDF cadastrado. Acesse o Admin para adicionar.'); return false;">Nenhum material disponível</a>`;
+                 pdfDropdownContent.innerHTML = noPdfLink;
+                 homePdfDropdownContent.innerHTML = noPdfLink;
+                 return;
+            }
+
+            pdfs.forEach(pdf => {
+                const navLink = document.createElement('a');
+                navLink.href = pdf.link;
+                navLink.target = '_blank';
+                navLink.innerHTML = `<i class="fas fa-file-pdf"></i> ${pdf.nome}`;
+                navLink.title = `Link: ${pdf.link}`;
+                pdfDropdownContent.appendChild(navLink);
+
+                const homeLink = document.createElement('a');
+                homeLink.href = pdf.link;
+                homeLink.target = '_blank';
+                homeLink.innerHTML = `<i class="fas fa-file-pdf"></i> ${pdf.nome}`;
+                homeLink.title = `Link: ${pdf.link}`;
+                homePdfDropdownContent.appendChild(homeLink);
+            });
+        }
+
+        function fazerLoginAdmin() {
+            const passwordInput = document.getElementById('admin-password');
+            if (passwordInput.value === ADMIN_PASSWORD) {
+                ativarTab('admin-content'); 
+                passwordInput.value = ''; 
+            } else {
+                alert('Senha incorreta.');
+                passwordInput.value = '';
+            }
+        }
+
+        function ativarTab(tabId) {
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.add('hidden'));
+            
+            let targetTabId = tabId;
+            if (tabId === 'admin') {
+                document.getElementById('admin-login-section').classList.remove('hidden');
+                const adminNav = document.querySelector('nav a[data-tab="admin"]');
+                if (adminNav) adminNav.classList.add('active');
+                return;
+            } else if (tabId === 'admin-content') {
+                targetTabId = 'admin';
+            }
+
+            const targetNav = document.querySelector(`nav a[data-tab="${targetTabId}"]`);
+            if (targetNav) {
+                targetNav.classList.add('active');
+            }
+            const targetSection = document.getElementById(`${targetTabId}-section`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            if (targetTabId === 'simulados') {
+                renderizarSimulados();
+            } else if (targetTabId === 'resultados') {
+                renderizarResultados();
+            } else if (targetTabId === 'admin') {
+                renderizarSimuladosAdmin();
+                renderizarPDFsAdmin(); 
+            } else if (targetTabId === 'simulado' && estado.simuladoAtual) {
+                 const primeiraQuestaoId = estado.simuladoAtual.questoes[0] ? estado.simuladoAtual.questoes[0].id : null;
+                 const indexParaRenderizar = primeiraQuestaoId ? estado.simuladoAtual.questoes.findIndex(q => q.id === primeiraQuestaoId) : 0;
+                 renderizarQuestao(indexParaRenderizar);
+            }
+        }
+        
+        function renderizarSimulados() {
+            if (!simuladosContainer) return;
+            simuladosContainer.innerHTML = '';
+            
+            if (simulados.length === 0) {
+                simuladosContainer.innerHTML = '<p class="info-message">Nenhum simulado cadastrado. Crie um na Área Admin.</p>';
+                return;
+            }
+
+            simulados.forEach(simulado => {
+                const card = document.createElement('div');
+                card.className = 'simulado-card';
+                card.setAttribute('data-id', simulado.id);
+                card.innerHTML = `
+                    <h3>${simulado.titulo}</h3>
+                    <p>${simulado.descricao}</p>
+                    <div class="meta">
+                        <span>${simulado.questoes.length} Questões</span>
+                        <span>Criado em: ${simulado.dataCriacao}</span>
+                    </div>
+                    <button class="btn btn-primary">Iniciar Simulado</button>
+                `;
+                simuladosContainer.appendChild(card);
+            });
+        }
+        
+        function iniciarSimulado(id) {
+            estado.simuladoAtual = simulados.find(s => s.id === id);
+            
+            if (estado.simuladoAtual.questoes.length === 0) {
+                alert(`O simulado "${estado.simuladoAtual.titulo}" não possui questões. Use a área Admin para criar ou importar.`);
+                return;
+            }
+            
+            // GARANTE QUE AS RESPOSTAS SEMPRE SEJAM LIMPAS AO INICIAR UM NOVO SIMULADO
+            estado.respostas = {}; 
+            ativarTab('simulado');
+            const simuladoTitleElement = document.getElementById('simulado-title');
+            if (simuladoTitleElement) {
+                simuladoTitleElement.textContent = estado.simuladoAtual.titulo;
+            }
+            renderizarQuestao(0);
+        }
+
+        // ====================================================================
+        // FUNÇÕES DE RENDERIZAÇÃO E GABARITO (NOVO MODELO)
+        // ====================================================================
+
+        function renderizarQuestao(index) {
+            const simulado = estado.simuladoAtual;
+            const questao = simulado.questoes[index];
+            
+            if (!questao) {
+                if (index >= simulado.questoes.length) {
+                    finalizarSimulado();
+                    return;
+                }
+                return;
+            }
+
+            const questaoIndex = index;
+            const questaoNumero = index + 1;
+            const totalQuestoes = simulado.questoes.length;
+            const respostaSelecionada = estado.respostas[questao.id];
+            const respondida = respostaSelecionada !== undefined;
+
+            let alternativasHtml = questao.alternativas.map((alt, i) => {
+                let classes = 'alternativa-item';
+                let disabled = respondida ? 'disabled' : '';
+                let feedbackIcon = '';
+                
+                // Aplica destaque se respondida (Modo Gabarito Imediato na Questão)
+                if (respondida) {
+                    // Alternativa Clicada
+                    if (i === respostaSelecionada) {
+                        if (i === questao.respostaCorreta) {
+                            classes += ' clicked-correct'; 
+                            feedbackIcon = '<i class="fas fa-check-circle"></i>';
+                        } else {
+                            classes += ' clicked-incorrect'; 
+                            feedbackIcon = '<i class="fas fa-times-circle"></i>';
+                        }
+                    } 
+                    // Se não foi a clicada, mas é a correta (mostra o gabarito)
+                    else if (i === questao.respostaCorreta) {
+                         classes += ' clicked-correct';
+                         feedbackIcon = '<i class="fas fa-check-circle"></i>';
+                    }
+                }
+                
+                const letra = String.fromCharCode(65 + i); 
+                
+                return `
+                    <button 
+                        class="${classes}" 
+                        data-index="${i}" 
+                        data-questao-id="${questao.id}"
+                        ${disabled}
+                        onclick="${respondida ? '' : `selecionarResposta(${questao.id}, ${i}, ${questaoIndex})`}"
+                    >
+                        ${letra}) ${alt.replace(/^[A-E]\) /, '')}
+                        ${feedbackIcon}
+                    </button>
+                `;
+            }).join('');
+
+            questoesList.innerHTML = `
+                <div class="questao-header">
+                    <h2>Questão ${questaoNumero} de ${totalQuestoes}</h2>
+                </div>
+                <div class="questao-body">
+                    <p class="enunciado">${questao.enunciado}</p>
+                    <div class="alternativas-container" data-questao-id="${questao.id}">
+                        ${alternativasHtml}
+                    </div>
+                </div>
+                <div class="questao-footer">
+                    <button class="btn btn-secondary" onclick="mudarQuestao(${questaoIndex - 1})" ${questaoIndex === 0 ? 'disabled' : ''}>
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </button>
+                    <button class="btn btn-secondary" onclick="mudarQuestao(${questaoIndex + 1})">
+                        ${questaoIndex < totalQuestoes - 1 ? 'Próxima <i class="fas fa-arrow-right"></i>' : 'Finalizar <i class="fas fa-flag-checkered"></i>'}
+                    </button>
+                </div>
+            `;
+            
+            // Renderiza o NOVO Gabarito Lateral
+            renderizarNovoGabaritoLateral(questaoIndex); 
+        }
+
+        function selecionarResposta(questaoId, respostaIndex, questaoIndex) {
+            const questao = estado.simuladoAtual.questoes.find(q => q.id === questaoId);
+            
+            // Registra a resposta
+            if (questao && estado.respostas[questaoId] === undefined) {
+                estado.respostas[questaoId] = respostaIndex;
+                
+                // Após responder, re-renderiza a questão atual para mostrar o feedback na questão e no mapa
+                renderizarQuestao(questaoIndex); 
+            }
+        }
+
+        function mudarQuestao(index) {
+            if (index >= 0 && index < estado.simuladoAtual.questoes.length) {
+                renderizarQuestao(index);
+            } else if (index === estado.simuladoAtual.questoes.length) {
+                finalizarSimulado();
+            }
+        }
+        
+        /**
+         * NOVO GABARITO LATERAL (LISTA)
+         * Mostra a lista de questões com um ícone de status (Respondida ou Não Respondida).
+         */
+        function renderizarNovoGabaritoLateral(questaoIndexAtual) {
+            if (!gabaritoResumoList) return;
+            const simulado = estado.simuladoAtual; 
+            const questoes = simulado ? simulado.questoes : [];
+            const respostas = estado.respostas;
+            
+            gabaritoResumoList.innerHTML = '';
+            
+            if (questoes.length === 0) return;
+
+            questoes.forEach((questao, index) => {
+                const numero = index + 1;
+                const item = document.createElement('li');
+                item.className = 'gabarito-resumo-item'; 
+                
+                const respostaSelecionada = respostas[questao.id];
+                const respondida = respostaSelecionada !== undefined;
+                
+                let statusClass = respondida ? 'status-respondida' : 'status-nao-respondida';
+                let statusIcon = respondida ? '<i class="fas fa-check"></i>' : '<i class="fas fa-circle"></i>';
+                
+                // Determinar se é a questão atual
+                if (index === questaoIndexAtual) {
+                    item.classList.add('current-question');
+                    statusIcon = '<i class="fas fa-chevron-right"></i>'; 
+                }
+
+                item.innerHTML = `
+                    <div class="gabarito-resumo-item-status ${statusClass}">
+                        ${statusIcon}
+                    </div>
+                    <span>Questão ${numero}</span>
+                `;
+
+                item.addEventListener('click', () => {
+                    renderizarQuestao(index);
+                });
+
+                gabaritoResumoList.appendChild(item);
+            });
+        }
+        
+        // ====================================================================
+        // FUNÇÕES DE RESULTADO (MANTIDAS)
+        // ====================================================================
+
+        function finalizarSimulado() {
+            let corretas = 0;
+            const simuladoId = estado.simuladoAtual.id;
+            const nomeSimulado = estado.simuladoAtual.titulo;
+
+            estado.simuladoAtual.questoes.forEach(q => {
+                if (estado.respostas[q.id] === q.respostaCorreta) {
+                    corretas++;
+                }
+            });
+
+            const resultadosSalvos = JSON.parse(localStorage.getItem(STORAGE_KEY_RESULTADOS)) || [];
+            const novoResultado = {
+                simuladoId: simuladoId,
+                nome: nomeSimulado,
+                data: new Date().toLocaleString('pt-BR'),
+                corretas: corretas,
+                total: estado.simuladoAtual.questoes.length
+            };
+            
+            resultadosSalvos.push(novoResultado);
+            localStorage.setItem(STORAGE_KEY_RESULTADOS, JSON.stringify(resultadosSalvos));
+
+            estado.simuladoAtual = null;
+            ativarTab('resultados');
+        }
+
+        function renderizarResultados() {
+            const resultadosContainer = document.getElementById('resultados-container');
+            if (!resultadosContainer) return;
+            const resultadosSalvos = JSON.parse(localStorage.getItem(STORAGE_KEY_RESULTADOS)) || [];
+            
+            resultadosContainer.innerHTML = '<h2>Histórico de Resultados</h2>';
+
+            if (resultadosSalvos.length === 0) {
+                resultadosContainer.innerHTML += '<p class="info-message">Nenhum resultado encontrado. Tente finalizar um simulado.</p>';
+                return;
+            }
+
+            resultadosSalvos.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+            const lista = document.createElement('ul');
+            lista.className = 'resultados-list';
+            
+            resultadosSalvos.forEach((res, index) => {
+                const percentual = ((res.corretas / res.total) * 100).toFixed(1);
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span class="resultado-title">${res.nome}</span>
+                    <span class="resultado-score">${res.corretas}/${res.total} (${percentual}%)</span>
+                    <span class="resultado-date">${res.data}</span>
+                    <button class="btn btn-danger" onclick="removerResultado(${index})" style="margin-left: 10px;"><i class="fas fa-trash"></i></button>
+                `;
+                lista.appendChild(li);
+            });
+
+            resultadosContainer.appendChild(lista);
+        }
+
+        function removerResultado(index) {
+             let resultadosSalvos = JSON.parse(localStorage.getItem(STORAGE_KEY_RESULTADOS)) || [];
+             resultadosSalvos.splice(index, 1);
+             localStorage.setItem(STORAGE_KEY_RESULTADOS, JSON.stringify(resultadosSalvos));
+             renderizarResultados();
+        }
+
+        // ====================================================================
+        // FUNÇÕES ADMIN (MANTIDAS)
+        // ====================================================================
+        
+        function gerarId() {
+            // Garante que os novos IDs sejam maiores que os pré-carregados
+            return simulados.length > 0 ? Math.max(...simulados.map(s => s.id)) + 1 : 1001; 
+        }
+
+        function validarQuestao(questao) {
+            return (
+                typeof questao.enunciado === 'string' && questao.enunciado.trim() !== '' &&
+                Array.isArray(questao.alternativas) && questao.alternativas.length >= 2 &&
+                typeof questao.respostaCorreta === 'number' && questao.respostaCorreta >= 0 && questao.respostaCorreta < questao.alternativas.length
+            );
+        }
+
+        function processarNovoSimulado(simuladoData) {
+            if (!simuladoData || typeof simuladoData.titulo !== 'string' || simuladoData.titulo.trim() === '' || 
+                typeof simuladoData.descricao !== 'string' || simuladoData.descricao.trim() === '' || 
+                !Array.isArray(simuladoData.questoes)) {
+                alert('🚨 Erro: O JSON deve conter "titulo" (string), "descricao" (string) e "questoes" (array não nulo).');
+                return false;
+            }
+            
+            let validas = 0;
+            const novasQuestoes = simuladoData.questoes.filter((q, index) => {
+                if (validarQuestao(q)) {
+                    q.id = gerarId() + index; 
+                    validas++;
+                    return true;
+                }
+                return false;
+            });
+            
+            if (validas === 0) {
+                 alert('🚨 Erro: Nenhuma questão válida encontrada no JSON.');
+                 return false;
+            }
+
+            if (validas !== simuladoData.questoes.length) {
+                alert(`⚠️ Atenção: Apenas ${validas} de ${simuladoData.questoes.length} questões foram validadas e importadas. Verifique o formato das questões inválidas.`);
+            }
+
+            const novoSimulado = {
+                id: gerarId(),
+                titulo: simuladoData.titulo,
+                descricao: simuladoData.descricao,
+                dataCriacao: new Date().toISOString().split('T')[0],
+                questoes: novasQuestoes 
+            };
+            
+            novoSimulado.titulo += ` (${novasQuestoes.length} Q)`;
+            simulados.push(novoSimulado);
+            salvarDados();
+            
+            atualizarContadorSimulados();
+            renderizarSimulados();
+            renderizarSimuladosAdmin();
+            alert(`✅ Sucesso! Novo Simulado "${novoSimulado.titulo}" criado com ${novasQuestoes.length} questões.`);
+            return true;
+        }
+
+        function criarSimuladoVazio() {
+            const titulo = document.getElementById('new-simulado-title').value;
+            const descricao = document.getElementById('new-simulado-desc').value;
+
+            if (!titulo || !descricao) {
+                alert('Preencha Título e Descrição para criar o simulado.');
+                return;
+            }
+
+            const novoSimulado = {
+                id: gerarId(),
+                titulo: titulo,
+                descricao: descricao,
+                dataCriacao: new Date().toISOString().split('T')[0],
+                questoes: [] 
+            };
+
+            simulados.push(novoSimulado);
+            salvarDados();
+            
+            document.getElementById('new-simulado-title').value = '';
+            document.getElementById('new-simulado-desc').value = '';
+            
+            atualizarContadorSimulados();
+            renderizarSimuladosAdmin();
+            alert(`Simulado "${novoSimulado.titulo}" criado vazio. Exclua-o se não for mais utilizá-lo.`);
+        }
+
+        function criarSimuladoJSONText() {
+            const jsonText = document.getElementById('json-simulado-text').value;
+
+            if (!jsonText.trim()) {
+                alert('O campo JSON não pode estar vazio.');
+                return;
+            }
+
+            try {
+                const simuladoData = JSON.parse(jsonText);
+                if (processarNovoSimulado(simuladoData)) {
+                    document.getElementById('json-simulado-text').value = '';
+                }
+            } catch (e) {
+                alert('🚨 Erro: O texto colado não é um JSON válido. Verifique a sintaxe.');
+                console.error(e);
+            }
+        }
+
+        function criarSimuladoJSONFile() {
+            const fileInput = document.getElementById('json-file-input');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('🚨 Erro: Selecione um Arquivo JSON válido.');
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                try {
+                    const simuladoData = JSON.parse(event.target.result);
+                    processarNovoSimulado(simuladoData);
+                    fileInput.value = '';
+                } catch (e) {
+                    alert('🚨 Erro ao processar o arquivo JSON. Verifique a sintaxe ou o formato.');
+                    console.error(e);
+                }
+            };
+
+            reader.onerror = function() {
+                alert('Erro ao ler o arquivo.');
+            };
+
+            reader.readAsText(file);
+        }
+
+        function adicionarPDF() {
+            const nameInput = document.getElementById('pdf-name-input');
+            const linkInput = document.getElementById('pdf-link-input');
+            const name = nameInput.value.trim();
+            const link = linkInput.value.trim();
+
+            if (name && link) {
+                pdfs.push({ nome: name, link: link });
+                salvarDados();
+                
+                nameInput.value = '';
+                linkInput.value = '';
+
+                renderizarPDFsAdmin();
+                renderizarDropdownPDFs();
+                alert(`✅ PDF "${name}" adicionado com sucesso!`);
+            } else {
+                alert('Preencha o Nome e o Link/Arquivo do PDF.');
+            }
+        }
+
+        function removerPDF(index) {
+            if (confirm(`Tem certeza que deseja remover o PDF "${pdfs[index].nome}" da lista?`)) {
+                pdfs.splice(index, 1);
+                salvarDados();
+                
+                renderizarPDFsAdmin();
+                renderizarDropdownPDFs();
+                alert('PDF removido com sucesso!');
+            }
+        }
+
+        function renderizarPDFsAdmin() {
+            if (!adminPdfList) return;
+            adminPdfList.innerHTML = '';
+
+            if (pdfs.length === 0) {
+                adminPdfList.innerHTML = '<p class="info-message">Nenhum PDF cadastrado.</p>';
+                return;
+            }
+
+            pdfs.forEach((pdf, index) => {
+                const div = document.createElement('div');
+                div.className = 'pdf-admin-item';
+                div.innerHTML = `
+                    <span style="flex-grow: 1; margin-right: 10px;">
+                        <strong>${pdf.nome}:</strong> 
+                        <span style="font-size: 0.9em; color: #718096;">${pdf.link}</span>
+                    </span>
+                    <div>
+                        <button class="btn btn-danger" onclick="removerPDF(${index})"><i class="fas fa-trash"></i> Excluir</button>
+                    </div>
+                `;
+                adminPdfList.appendChild(div);
+            });
+        }
+
+        function renderizarSimuladosAdmin() {
+            if (!simuladoAdminList) return;
+            simuladoAdminList.innerHTML = '';
+
+            if (simulados.length === 0) {
+                simuladoAdminList.innerHTML = '<p class="info-message">Nenhum simulado para gerenciar.</p>';
+                return;
+            }
+
+            simulados.forEach(simulado => {
+                const div = document.createElement('div');
+                div.className = 'simulado-admin-item';
+                div.innerHTML = `
+                    <span>${simulado.titulo} (ID: ${simulado.id})</span>
+                    <div>
+                        <button class="btn btn-danger" onclick="excluirSimulado(${simulado.id})"><i class="fas fa-trash"></i> Excluir</button>
+                    </div>
+                `;
+                simuladoAdminList.appendChild(div);
+            });
+        }
+        
+        function excluirSimulado(id) {
+            if (confirm('Tem certeza que deseja excluir este simulado? Ele será permanentemente removido.')) {
+                simulados = simulados.filter(s => s.id !== id);
+                salvarDados();
+                
+                atualizarContadorSimulados();
+                renderizarSimulados();
+                renderizarSimuladosAdmin();
+                
+                alert('Simulado excluído com sucesso!');
+            }
+        }
+
+        function atualizarContadorSimulados() {
+            const countElement = document.getElementById('simulados-count');
+            if (countElement) {
+                countElement.textContent = simulados.length;
+            }
+        }
+
+    </script>
+</body>
+</html>
